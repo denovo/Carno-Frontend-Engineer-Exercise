@@ -1,0 +1,2 @@
+# Pre-commit hook — intentionally empty.
+# Linting and tests are run in CI (GitHub Actions).
