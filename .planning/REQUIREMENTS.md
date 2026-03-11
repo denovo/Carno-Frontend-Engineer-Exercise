@@ -26,7 +26,7 @@
 - [x] **NGR-09**: Optimistic update for `moveTask` — state updates immediately, rolls back if server fails
 - [x] **NGR-10**: Rollback strategy stores previous columnId in action payload for reducer revert
 - [x] **NGR-11**: Entity adapter (`@ngrx/entity`) for normalised task storage
-- [ ] **NGR-12**: At least one effect with proper error handling (using `catchError` + failure action dispatch)
+- [x] **NGR-12**: At least one effect with proper error handling (using `catchError` + failure action dispatch)
 - [x] **NGR-13**: Command vs event action naming pattern (e.g., `moveTask` command → `moveTaskSuccess` / `moveTaskFailure` events)
 - [x] **NGR-14**: Local mock service simulating server responses with RxJS `delay()` and configurable failure
 
@@ -142,7 +142,7 @@
 | NGR-09 | Phase 2: NGRX Store | Complete |
 | NGR-10 | Phase 2: NGRX Store | Complete |
 | NGR-11 | Phase 2: NGRX Store | Complete |
-| NGR-12 | Phase 2: NGRX Store | Pending |
+| NGR-12 | Phase 2: NGRX Store | Complete |
 | NGR-13 | Phase 2: NGRX Store | Complete |
 | NGR-14 | Phase 2: NGRX Store | Complete |
 | APP-01 | Phase 3: Component Layer | Pending |

@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-04-PLAN.md (task selectors with projector tests)
-last_updated: "2026-03-11T15:40:31.323Z"
+stopped_at: Completed 02-05-PLAN.md (TaskEffects with loadTasks$ and moveTask$ effects)
+last_updated: "2026-03-11T15:41:56.566Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
   completed_phases: 1
   total_plans: 8
-  completed_plans: 6
+  completed_plans: 7
   percent: 0
 ---
 
@@ -57,6 +57,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02 P01 | 8 | 2 tasks | 6 files |
 | Phase 02-ngrx-store P03 | 5 | 2 tasks | 2 files |
 | Phase 02-ngrx-store P04 | 5 | 2 tasks | 2 files |
+| Phase 02-ngrx-store P05 | 3 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -90,6 +91,9 @@ Recent decisions affecting current work:
 - [Phase 02-04]: Factory selectors (columnId) => createSelector over deprecated props pattern — cleaner API for Phase 3 components
 - [Phase 02-04]: selectCompletionRate returns 0 for empty task list — division-by-zero guard at selector level
 - [Phase 02-04]: selectCountByPriority pre-initializes all 4 Priority keys to 0 — consumers get complete record without key guards
+- [Phase 02-ngrx-store]: inject() fields before createEffect() fields — Vitest DI safety (NGRX issue #4708)
+- [Phase 02-ngrx-store]: catchError inside concatMap inner pipe — effect stream survives individual errors without terminating
+- [Phase 02-ngrx-store]: concatMap for mutation effects — prevents request cancellation and reordering
 
 ### Pending Todos
 
@@ -102,6 +106,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11T15:40:31.318Z
-Stopped at: Completed 02-04-PLAN.md (task selectors with projector tests)
+Last session: 2026-03-11T15:41:56.562Z
+Stopped at: Completed 02-05-PLAN.md (TaskEffects with loadTasks$ and moveTask$ effects)
 Resume file: None
