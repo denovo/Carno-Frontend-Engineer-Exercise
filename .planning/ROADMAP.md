@@ -13,7 +13,7 @@ Petello is built in six phases that follow the natural dependency chain of an An
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Project Scaffolding and Tooling** - Angular 21 scaffold with data models, verified toolchain (OXfmt, Vitest, Storybook, Conventional Commits) (completed 2026-03-11)
-- [ ] **Phase 2: NGRX Store** - Complete state management layer with actions, reducer, selectors, effects, entity adapter, optimistic update, and mock service
+- [x] **Phase 2: NGRX Store** - Complete state management layer with actions, reducer, selectors, effects, entity adapter, optimistic update, and mock service (completed 2026-03-11)
 - [ ] **Phase 3: Component Layer** - TaskCard with signals, board page with NGRX-to-signal bridge, full task CRUD UI using Angular Material
 - [ ] **Phase 4: Dynamic Widget System** - DynamicWidgetOutletDirective with full input/output forwarding, WidgetStatus interface, TaskCountWidget, ProgressWidget
 - [ ] **Phase 5: Testing and Storybook** - Vitest unit tests, Storybook stories, Playwright E2E, Axe a11y integration
@@ -129,7 +129,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Project Scaffolding and Tooling | 2/2 | Complete   | 2026-03-11 |
-| 2. NGRX Store | 5/6 | In Progress|  |
+| 2. NGRX Store | 6/6 | Complete   | 2026-03-11 |
 | 3. Component Layer | 0/? | Not started | - |
 | 4. Dynamic Widget System | 0/? | Not started | - |
 | 5. Testing and Storybook | 0/? | Not started | - |

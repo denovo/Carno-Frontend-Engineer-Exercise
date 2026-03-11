@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-05-PLAN.md (TaskEffects with loadTasks$ and moveTask$ effects)
-last_updated: "2026-03-11T15:41:56.566Z"
+stopped_at: Completed 02-06-PLAN.md (Store wiring and barrel index)
+last_updated: "2026-03-11T16:53:13.377Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 8
-  completed_plans: 7
+  completed_plans: 8
   percent: 0
 ---
 
@@ -58,6 +58,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-ngrx-store P03 | 5 | 2 tasks | 2 files |
 | Phase 02-ngrx-store P04 | 5 | 2 tasks | 2 files |
 | Phase 02-ngrx-store P05 | 3 | 2 tasks | 2 files |
+| Phase 02-ngrx-store P06 | 55 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -94,6 +95,8 @@ Recent decisions affecting current work:
 - [Phase 02-ngrx-store]: inject() fields before createEffect() fields — Vitest DI safety (NGRX issue #4708)
 - [Phase 02-ngrx-store]: catchError inside concatMap inner pipe — effect stream survives individual errors without terminating
 - [Phase 02-ngrx-store]: concatMap for mutation effects — prevents request cancellation and reordering
+- [Phase 02-ngrx-store]: store/index.ts uses named export { TaskEffects } to prevent @ngrx/effects internals bleeding through barrel
+- [Phase 02-ngrx-store]: provideStoreDevtools configured with maxAge: 25, autoPause: true for performance-safe DevTools
 
 ### Pending Todos
 
@@ -106,6 +109,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11T15:41:56.562Z
-Stopped at: Completed 02-05-PLAN.md (TaskEffects with loadTasks$ and moveTask$ effects)
+Last session: 2026-03-11T16:53:13.372Z
+Stopped at: Completed 02-06-PLAN.md (Store wiring and barrel index)
 Resume file: None
