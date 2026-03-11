@@ -31,11 +31,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Conventional Commits are enforced -- a commit with a non-conforming message is rejected by the pre-commit hook
   4. OXfmt formats TypeScript files on save (or via CLI) and the formatter runs without errors
   5. Vitest runs a trivial test successfully (`npm test` passes)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md — Angular 21 scaffold, NGRX/Material/OXfmt/commitlint install, path alias, directory skeleton (TOOL-01, TOOL-02)
+- [ ] 01-02-PLAN.md — TypeScript data model interfaces: Board, Column, Task, Priority enum, TaskAction discriminated union, barrel index, Vitest smoke test (MDL-01 through MDL-05)
 
 ### Phase 2: NGRX Store
 **Goal**: The entire state management layer is built and unit-tested independently of any UI -- actions, reducer, selectors, effects, entity adapter, optimistic update with rollback, and mock API service all work
@@ -124,7 +124,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Project Scaffolding and Tooling | 0/? | Not started | - |
+| 1. Project Scaffolding and Tooling | 0/2 | Not started | - |
 | 2. NGRX Store | 0/? | Not started | - |
 | 3. Component Layer | 0/? | Not started | - |
 | 4. Dynamic Widget System | 0/? | Not started | - |
