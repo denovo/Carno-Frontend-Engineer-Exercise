@@ -74,8 +74,8 @@
 
 ### Tooling and Quality
 
-- [ ] **TOOL-01**: Conventional Commits format enforced via `commitlint` + `husky` pre-commit hook
-- [ ] **TOOL-02**: OXfmt Beta configured for local on-save formatting (TypeScript/JS files)
+- [x] **TOOL-01**: Conventional Commits format enforced via `commitlint` + `husky` pre-commit hook
+- [x] **TOOL-02**: OXfmt Beta configured for local on-save formatting (TypeScript/JS files)
 - [ ] **TOOL-03**: Vitest unit tests for all selectors (selectTasksByColumn, selectCountByPriority, selectCompletionRate)
 - [ ] **TOOL-04**: Vitest unit test for reducer (moveTask optimistic update + rollback)
 - [ ] **TOOL-05**: Vitest unit test for at least one effect (error handling path)
@@ -129,8 +129,8 @@
 | MDL-03 | Phase 1: Project Scaffolding and Tooling | Pending |
 | MDL-04 | Phase 1: Project Scaffolding and Tooling | Pending |
 | MDL-05 | Phase 1: Project Scaffolding and Tooling | Pending |
-| TOOL-01 | Phase 1: Project Scaffolding and Tooling | Pending |
-| TOOL-02 | Phase 1: Project Scaffolding and Tooling | Pending |
+| TOOL-01 | Phase 1: Project Scaffolding and Tooling | Complete |
+| TOOL-02 | Phase 1: Project Scaffolding and Tooling | Complete |
 | NGR-01 | Phase 2: NGRX Store | Pending |
 | NGR-02 | Phase 2: NGRX Store | Pending |
 | NGR-03 | Phase 2: NGRX Store | Pending |
