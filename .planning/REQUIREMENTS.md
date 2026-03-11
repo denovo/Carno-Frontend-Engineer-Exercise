@@ -122,25 +122,82 @@
 
 ## Traceability
 
-Populated during roadmap creation.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| MDL-01 through MDL-05 | Phase 1 | Pending |
-| TOOL-01, TOOL-02 | Phase 1 | Pending |
-| NGR-01 through NGR-14 | Phase 2 | Pending |
-| SIG-01 through SIG-08 | Phase 3 | Pending |
-| APP-01 through APP-08 | Phase 3 | Pending |
-| DYN-01 through DYN-09 | Phase 4 | Pending |
-| WGT-01 through WGT-05 | Phase 4 | Pending |
-| TOOL-03 through TOOL-10 | Phase 5 | Pending |
-| DOC-01 through DOC-09 | Phase 6 | Pending |
+| MDL-01 | Phase 1: Project Scaffolding and Tooling | Pending |
+| MDL-02 | Phase 1: Project Scaffolding and Tooling | Pending |
+| MDL-03 | Phase 1: Project Scaffolding and Tooling | Pending |
+| MDL-04 | Phase 1: Project Scaffolding and Tooling | Pending |
+| MDL-05 | Phase 1: Project Scaffolding and Tooling | Pending |
+| TOOL-01 | Phase 1: Project Scaffolding and Tooling | Pending |
+| TOOL-02 | Phase 1: Project Scaffolding and Tooling | Pending |
+| NGR-01 | Phase 2: NGRX Store | Pending |
+| NGR-02 | Phase 2: NGRX Store | Pending |
+| NGR-03 | Phase 2: NGRX Store | Pending |
+| NGR-04 | Phase 2: NGRX Store | Pending |
+| NGR-05 | Phase 2: NGRX Store | Pending |
+| NGR-06 | Phase 2: NGRX Store | Pending |
+| NGR-07 | Phase 2: NGRX Store | Pending |
+| NGR-08 | Phase 2: NGRX Store | Pending |
+| NGR-09 | Phase 2: NGRX Store | Pending |
+| NGR-10 | Phase 2: NGRX Store | Pending |
+| NGR-11 | Phase 2: NGRX Store | Pending |
+| NGR-12 | Phase 2: NGRX Store | Pending |
+| NGR-13 | Phase 2: NGRX Store | Pending |
+| NGR-14 | Phase 2: NGRX Store | Pending |
+| APP-01 | Phase 3: Component Layer | Pending |
+| APP-02 | Phase 3: Component Layer | Pending |
+| APP-03 | Phase 3: Component Layer | Pending |
+| APP-04 | Phase 3: Component Layer | Pending |
+| APP-05 | Phase 3: Component Layer | Pending |
+| APP-06 | Phase 3: Component Layer | Pending |
+| APP-07 | Phase 3: Component Layer | Pending |
+| APP-08 | Phase 3: Component Layer | Pending |
+| SIG-01 | Phase 3: Component Layer | Pending |
+| SIG-02 | Phase 3: Component Layer | Pending |
+| SIG-03 | Phase 3: Component Layer | Pending |
+| SIG-04 | Phase 3: Component Layer | Pending |
+| SIG-05 | Phase 3: Component Layer | Pending |
+| SIG-06 | Phase 3: Component Layer | Pending |
+| SIG-07 | Phase 3: Component Layer | Pending |
+| SIG-08 | Phase 3: Component Layer | Pending |
+| DYN-01 | Phase 4: Dynamic Widget System | Pending |
+| DYN-02 | Phase 4: Dynamic Widget System | Pending |
+| DYN-03 | Phase 4: Dynamic Widget System | Pending |
+| DYN-04 | Phase 4: Dynamic Widget System | Pending |
+| DYN-05 | Phase 4: Dynamic Widget System | Pending |
+| DYN-06 | Phase 4: Dynamic Widget System | Pending |
+| DYN-07 | Phase 4: Dynamic Widget System | Pending |
+| DYN-08 | Phase 4: Dynamic Widget System | Pending |
+| DYN-09 | Phase 4: Dynamic Widget System | Pending |
+| WGT-01 | Phase 4: Dynamic Widget System | Pending |
+| WGT-02 | Phase 4: Dynamic Widget System | Pending |
+| WGT-03 | Phase 4: Dynamic Widget System | Pending |
+| WGT-04 | Phase 4: Dynamic Widget System | Pending |
+| WGT-05 | Phase 4: Dynamic Widget System | Pending |
+| TOOL-03 | Phase 5: Testing and Storybook | Pending |
+| TOOL-04 | Phase 5: Testing and Storybook | Pending |
+| TOOL-05 | Phase 5: Testing and Storybook | Pending |
+| TOOL-06 | Phase 5: Testing and Storybook | Pending |
+| TOOL-07 | Phase 5: Testing and Storybook | Pending |
+| TOOL-08 | Phase 5: Testing and Storybook | Pending |
+| TOOL-09 | Phase 5: Testing and Storybook | Pending |
+| TOOL-10 | Phase 5: Testing and Storybook | Pending |
+| DOC-01 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
+| DOC-02 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
+| DOC-03 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
+| DOC-04 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
+| DOC-05 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
+| DOC-06 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
+| DOC-07 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
+| DOC-08 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
+| DOC-09 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
 
 **Coverage:**
-- v1 requirements: 59 total
-- Mapped to phases: 59
-- Unmapped: 0 ✓
+- v1 requirements: 68 total
+- Mapped to phases: 68
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-11*
-*Last updated: 2026-03-11 after initial definition*
+*Last updated: 2026-03-11 after roadmap creation*
