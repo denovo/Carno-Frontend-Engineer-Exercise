@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-03-PLAN.md (task reducer with optimistic update)
-last_updated: "2026-03-11T15:36:45.516Z"
+stopped_at: Completed 02-04-PLAN.md (task selectors with projector tests)
+last_updated: "2026-03-11T15:40:31.323Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
   completed_phases: 1
   total_plans: 8
-  completed_plans: 5
+  completed_plans: 6
   percent: 0
 ---
 
@@ -56,6 +56,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-ngrx-store P02 | 1 | 1 tasks | 1 files |
 | Phase 02 P01 | 8 | 2 tasks | 6 files |
 | Phase 02-ngrx-store P03 | 5 | 2 tasks | 2 files |
+| Phase 02-ngrx-store P04 | 5 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -86,6 +87,9 @@ Recent decisions affecting current work:
 - [Phase 02-03]: TaskState.error is string | null (non-optional) — createFeature auto-selector requirement
 - [Phase 02-03]: taskAdapter exported separately from tasksFeature — Plan 04 selectors need it for adapter.getSelectors()
 - [Phase 02-03]: moveTaskSuccess is a no-op reducer handler — optimistic update already applied on moveTask dispatch
+- [Phase 02-04]: Factory selectors (columnId) => createSelector over deprecated props pattern — cleaner API for Phase 3 components
+- [Phase 02-04]: selectCompletionRate returns 0 for empty task list — division-by-zero guard at selector level
+- [Phase 02-04]: selectCountByPriority pre-initializes all 4 Priority keys to 0 — consumers get complete record without key guards
 
 ### Pending Todos
 
@@ -98,6 +102,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11T15:36:41.253Z
-Stopped at: Completed 02-03-PLAN.md (task reducer with optimistic update)
+Last session: 2026-03-11T15:40:31.318Z
+Stopped at: Completed 02-04-PLAN.md (task selectors with projector tests)
 Resume file: None

@@ -20,9 +20,9 @@
 - [x] **NGR-03**: Action `moveTask` — move task between columns (optimistic update)
 - [x] **NGR-04**: Action `updateTask` — update task details
 - [x] **NGR-05**: Action `removeTask` — remove a task
-- [ ] **NGR-06**: Parameterised/factory selector `selectTasksByColumn(columnId)` returning tasks filtered by column
-- [ ] **NGR-07**: Selector `selectCountByPriority` returning count breakdown grouped by priority
-- [ ] **NGR-08**: Selector `selectCompletionRate` calculating % of tasks in final column
+- [x] **NGR-06**: Parameterised/factory selector `selectTasksByColumn(columnId)` returning tasks filtered by column
+- [x] **NGR-07**: Selector `selectCountByPriority` returning count breakdown grouped by priority
+- [x] **NGR-08**: Selector `selectCompletionRate` calculating % of tasks in final column
 - [x] **NGR-09**: Optimistic update for `moveTask` — state updates immediately, rolls back if server fails
 - [x] **NGR-10**: Rollback strategy stores previous columnId in action payload for reducer revert
 - [x] **NGR-11**: Entity adapter (`@ngrx/entity`) for normalised task storage
@@ -136,9 +136,9 @@
 | NGR-03 | Phase 2: NGRX Store | Complete |
 | NGR-04 | Phase 2: NGRX Store | Complete |
 | NGR-05 | Phase 2: NGRX Store | Complete |
-| NGR-06 | Phase 2: NGRX Store | Pending |
-| NGR-07 | Phase 2: NGRX Store | Pending |
-| NGR-08 | Phase 2: NGRX Store | Pending |
+| NGR-06 | Phase 2: NGRX Store | Complete |
+| NGR-07 | Phase 2: NGRX Store | Complete |
+| NGR-08 | Phase 2: NGRX Store | Complete |
 | NGR-09 | Phase 2: NGRX Store | Complete |
 | NGR-10 | Phase 2: NGRX Store | Complete |
 | NGR-11 | Phase 2: NGRX Store | Complete |
