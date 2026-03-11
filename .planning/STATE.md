@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: "Completed 01-01: scaffold+tooling, awaiting Task 3 human-verify"
-last_updated: "2026-03-11T07:41:39.706Z"
+stopped_at: Completed 01-01-PLAN.md (scaffold + tooling fully verified)
+last_updated: "2026-03-11T07:58:31.036Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
@@ -51,6 +51,7 @@ Progress: [░░░░░░░░░░] 0%
 
 *Updated after each plan completion*
 | Phase 01 P01 | 45 | 2 tasks | 25 files |
+| Phase 01 P01 | 45 | 3 tasks | 30 files |
 
 ## Accumulated Context
 
@@ -65,6 +66,10 @@ Recent decisions affecting current work:
 - [Phase 01]: Angular 21 file naming: app.ts not app.component.ts (drops .component. infix)
 - [Phase 01]: pre-commit hook emptied — tests run in CI; commit-msg hook sources nvm for Node version compatibility
 - [Phase 01]: OXfmt converts single-quoted imports to double-quoted — establishes double-quote style for project
+- [Phase 01]: Angular 21 uses new file naming: app.ts (not app.component.ts)
+- [Phase 01]: Node 23.1.0 required via .nvmrc — Angular 21.2 requires node >=22.12
+- [Phase 01]: pre-commit hook emptied — commit-msg hook sources nvm for commitlint
+- [Phase 01]: OXfmt establishes double-quote import style for the entire project
 
 ### Pending Todos
 
@@ -77,6 +82,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11T07:41:39.703Z
-Stopped at: Completed 01-01: scaffold+tooling, awaiting Task 3 human-verify
+Last session: 2026-03-11T07:58:31.030Z
+Stopped at: Completed 01-01-PLAN.md (scaffold + tooling fully verified)
 Resume file: None
