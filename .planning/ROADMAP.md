@@ -47,11 +47,15 @@ Plans:
   3. Moving a task updates state immediately (optimistic) and rolls back to the previous column if the mock service returns an error
   4. The mock service introduces observable latency (RxJS delay) and can be configured to fail, triggering effect error handling
   5. Actions follow command/event naming (e.g., moveTask, moveTaskSuccess, moveTaskFailure)
-**Plans**: TBD
+**Plans**: 6 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md — Mock seed data (MOCK_BOARD/MOCK_TASKS), TaskMockService with configurable latency/failure, DONE_COLUMN_ID constant (NGR-14)
+- [ ] 02-02-PLAN.md — All 15 action creators with command/event naming convention (NGR-01, NGR-02, NGR-03, NGR-04, NGR-05, NGR-13)
+- [ ] 02-03-PLAN.md — createFeature reducer with EntityAdapter, TaskState, optimistic moveTask + rollback, reducer spec (NGR-09, NGR-10, NGR-11)
+- [ ] 02-04-PLAN.md — Derived selectors: selectTasksByColumn (factory), selectCountByPriority, selectCompletionRate (factory), selectors spec (NGR-06, NGR-07, NGR-08)
+- [ ] 02-05-PLAN.md — TaskEffects with loadTasks$ and moveTask$ (concatMap + inner catchError), effects spec covering failure paths (NGR-12)
+- [ ] 02-06-PLAN.md — Store wiring: provideStore/provideEffects/provideStoreDevtools in app.config.ts, store barrel index (all NGR requirements confirmed wired)
 
 ### Phase 3: Component Layer
 **Goal**: Users can see a board with columns, create/edit/delete tasks, and move tasks between columns -- all UI is wired to the NGRX store via signal bridges
@@ -125,7 +129,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Project Scaffolding and Tooling | 2/2 | Complete   | 2026-03-11 |
-| 2. NGRX Store | 0/? | Not started | - |
+| 2. NGRX Store | 0/6 | Not started | - |
 | 3. Component Layer | 0/? | Not started | - |
 | 4. Dynamic Widget System | 0/? | Not started | - |
 | 5. Testing and Storybook | 0/? | Not started | - |
