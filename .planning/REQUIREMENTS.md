@@ -15,11 +15,11 @@
 
 ### NGRX State Management
 
-- [ ] **NGR-01**: Action `loadTasks` — load tasks for a board
-- [ ] **NGR-02**: Action `addTask` — add a new task
-- [ ] **NGR-03**: Action `moveTask` — move task between columns (optimistic update)
-- [ ] **NGR-04**: Action `updateTask` — update task details
-- [ ] **NGR-05**: Action `removeTask` — remove a task
+- [x] **NGR-01**: Action `loadTasks` — load tasks for a board
+- [x] **NGR-02**: Action `addTask` — add a new task
+- [x] **NGR-03**: Action `moveTask` — move task between columns (optimistic update)
+- [x] **NGR-04**: Action `updateTask` — update task details
+- [x] **NGR-05**: Action `removeTask` — remove a task
 - [ ] **NGR-06**: Parameterised/factory selector `selectTasksByColumn(columnId)` returning tasks filtered by column
 - [ ] **NGR-07**: Selector `selectCountByPriority` returning count breakdown grouped by priority
 - [ ] **NGR-08**: Selector `selectCompletionRate` calculating % of tasks in final column
@@ -27,7 +27,7 @@
 - [ ] **NGR-10**: Rollback strategy stores previous columnId in action payload for reducer revert
 - [ ] **NGR-11**: Entity adapter (`@ngrx/entity`) for normalised task storage
 - [ ] **NGR-12**: At least one effect with proper error handling (using `catchError` + failure action dispatch)
-- [ ] **NGR-13**: Command vs event action naming pattern (e.g., `moveTask` command → `moveTaskSuccess` / `moveTaskFailure` events)
+- [x] **NGR-13**: Command vs event action naming pattern (e.g., `moveTask` command → `moveTaskSuccess` / `moveTaskFailure` events)
 - [ ] **NGR-14**: Local mock service simulating server responses with RxJS `delay()` and configurable failure
 
 ### Signals Integration
@@ -131,11 +131,11 @@
 | MDL-05 | Phase 1: Project Scaffolding and Tooling | Complete |
 | TOOL-01 | Phase 1: Project Scaffolding and Tooling | Complete |
 | TOOL-02 | Phase 1: Project Scaffolding and Tooling | Complete |
-| NGR-01 | Phase 2: NGRX Store | Pending |
-| NGR-02 | Phase 2: NGRX Store | Pending |
-| NGR-03 | Phase 2: NGRX Store | Pending |
-| NGR-04 | Phase 2: NGRX Store | Pending |
-| NGR-05 | Phase 2: NGRX Store | Pending |
+| NGR-01 | Phase 2: NGRX Store | Complete |
+| NGR-02 | Phase 2: NGRX Store | Complete |
+| NGR-03 | Phase 2: NGRX Store | Complete |
+| NGR-04 | Phase 2: NGRX Store | Complete |
+| NGR-05 | Phase 2: NGRX Store | Complete |
 | NGR-06 | Phase 2: NGRX Store | Pending |
 | NGR-07 | Phase 2: NGRX Store | Pending |
 | NGR-08 | Phase 2: NGRX Store | Pending |
@@ -143,7 +143,7 @@
 | NGR-10 | Phase 2: NGRX Store | Pending |
 | NGR-11 | Phase 2: NGRX Store | Pending |
 | NGR-12 | Phase 2: NGRX Store | Pending |
-| NGR-13 | Phase 2: NGRX Store | Pending |
+| NGR-13 | Phase 2: NGRX Store | Complete |
 | NGR-14 | Phase 2: NGRX Store | Pending |
 | APP-01 | Phase 3: Component Layer | Pending |
 | APP-02 | Phase 3: Component Layer | Pending |

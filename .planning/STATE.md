@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-02-PLAN.md (data models layer complete)
-last_updated: "2026-03-11T09:00:51.918Z"
+stopped_at: Completed 02-02-PLAN.md (NGRX actions layer complete)
+last_updated: "2026-03-11T15:28:52.102Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  total_plans: 8
+  completed_plans: 3
   percent: 0
 ---
 
@@ -53,6 +53,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01 P01 | 45 | 2 tasks | 25 files |
 | Phase 01 P01 | 45 | 3 tasks | 30 files |
 | Phase 01 P02 | 10 | 2 tasks | 7 files |
+| Phase 02-ngrx-store P02 | 1 | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -74,6 +75,9 @@ Recent decisions affecting current work:
 - [Phase 01]: createdAt/updatedAt typed as Date (not string) to enable direct date arithmetic in Phase 3 computed signals
 - [Phase 01]: Task has no dueDate — overdue detection via age (createdAt + OVERDUE_THRESHOLD_DAYS constant)
 - [Phase 01]: TaskAction discriminated union includes compile-time _exhaustiveCheck to prove exhaustiveness
+- [Phase 02-ngrx-store]: moveTask carries previousColumnId in props for optimistic rollback without selector call in effects
+- [Phase 02-ngrx-store]: addTask uses Omit<Task, id|createdAt|updatedAt> — server assigns those fields, full Task returned in addTaskSuccess
+- [Phase 02-ngrx-store]: updateTask uses Update<Task> from @ngrx/entity for partial entity changes
 
 ### Pending Todos
 
@@ -86,6 +90,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11T08:10:47.418Z
-Stopped at: Completed 01-02-PLAN.md (data models layer complete)
+Last session: 2026-03-11T15:28:52.098Z
+Stopped at: Completed 02-02-PLAN.md (NGRX actions layer complete)
 Resume file: None
