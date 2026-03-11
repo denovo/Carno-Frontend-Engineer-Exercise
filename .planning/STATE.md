@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-01-PLAN.md (scaffold + tooling fully verified)
-last_updated: "2026-03-11T07:58:31.036Z"
+stopped_at: Completed 01-02-PLAN.md (data models layer complete)
+last_updated: "2026-03-11T08:10:47.422Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 1
+  completed_plans: 2
   percent: 0
 ---
 
@@ -52,6 +52,7 @@ Progress: [░░░░░░░░░░] 0%
 *Updated after each plan completion*
 | Phase 01 P01 | 45 | 2 tasks | 25 files |
 | Phase 01 P01 | 45 | 3 tasks | 30 files |
+| Phase 01 P02 | 10 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -70,6 +71,9 @@ Recent decisions affecting current work:
 - [Phase 01]: Node 23.1.0 required via .nvmrc — Angular 21.2 requires node >=22.12
 - [Phase 01]: pre-commit hook emptied — commit-msg hook sources nvm for commitlint
 - [Phase 01]: OXfmt establishes double-quote import style for the entire project
+- [Phase 01]: createdAt/updatedAt typed as Date (not string) to enable direct date arithmetic in Phase 3 computed signals
+- [Phase 01]: Task has no dueDate — overdue detection via age (createdAt + OVERDUE_THRESHOLD_DAYS constant)
+- [Phase 01]: TaskAction discriminated union includes compile-time _exhaustiveCheck to prove exhaustiveness
 
 ### Pending Todos
 
@@ -82,6 +86,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11T07:58:31.030Z
-Stopped at: Completed 01-01-PLAN.md (scaffold + tooling fully verified)
+Last session: 2026-03-11T08:10:47.418Z
+Stopped at: Completed 01-02-PLAN.md (data models layer complete)
 Resume file: None

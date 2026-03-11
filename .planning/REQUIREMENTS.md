@@ -7,11 +7,11 @@
 
 ### Data Models
 
-- [ ] **MDL-01**: TypeScript interface `Board` with id, name, and columns collection
-- [ ] **MDL-02**: TypeScript interface `Column` with id, name, and order
-- [ ] **MDL-03**: TypeScript interface `Task` with id, title, optional description, columnId, priority, optional assignee, createdAt, updatedAt
-- [ ] **MDL-04**: Priority represented as TypeScript enum or union type with 4 tiers (Low, Medium, High, Critical)
-- [ ] **MDL-05**: Discriminated union types for strongly-typed action variants
+- [x] **MDL-01**: TypeScript interface `Board` with id, name, and columns collection
+- [x] **MDL-02**: TypeScript interface `Column` with id, name, and order
+- [x] **MDL-03**: TypeScript interface `Task` with id, title, optional description, columnId, priority, optional assignee, createdAt, updatedAt
+- [x] **MDL-04**: Priority represented as TypeScript enum or union type with 4 tiers (Low, Medium, High, Critical)
+- [x] **MDL-05**: Discriminated union types for strongly-typed action variants
 
 ### NGRX State Management
 
@@ -124,11 +124,11 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| MDL-01 | Phase 1: Project Scaffolding and Tooling | Pending |
-| MDL-02 | Phase 1: Project Scaffolding and Tooling | Pending |
-| MDL-03 | Phase 1: Project Scaffolding and Tooling | Pending |
-| MDL-04 | Phase 1: Project Scaffolding and Tooling | Pending |
-| MDL-05 | Phase 1: Project Scaffolding and Tooling | Pending |
+| MDL-01 | Phase 1: Project Scaffolding and Tooling | Complete |
+| MDL-02 | Phase 1: Project Scaffolding and Tooling | Complete |
+| MDL-03 | Phase 1: Project Scaffolding and Tooling | Complete |
+| MDL-04 | Phase 1: Project Scaffolding and Tooling | Complete |
+| MDL-05 | Phase 1: Project Scaffolding and Tooling | Complete |
 | TOOL-01 | Phase 1: Project Scaffolding and Tooling | Complete |
 | TOOL-02 | Phase 1: Project Scaffolding and Tooling | Complete |
 | NGR-01 | Phase 2: NGRX Store | Pending |
