@@ -23,9 +23,9 @@
 - [ ] **NGR-06**: Parameterised/factory selector `selectTasksByColumn(columnId)` returning tasks filtered by column
 - [ ] **NGR-07**: Selector `selectCountByPriority` returning count breakdown grouped by priority
 - [ ] **NGR-08**: Selector `selectCompletionRate` calculating % of tasks in final column
-- [ ] **NGR-09**: Optimistic update for `moveTask` — state updates immediately, rolls back if server fails
-- [ ] **NGR-10**: Rollback strategy stores previous columnId in action payload for reducer revert
-- [ ] **NGR-11**: Entity adapter (`@ngrx/entity`) for normalised task storage
+- [x] **NGR-09**: Optimistic update for `moveTask` — state updates immediately, rolls back if server fails
+- [x] **NGR-10**: Rollback strategy stores previous columnId in action payload for reducer revert
+- [x] **NGR-11**: Entity adapter (`@ngrx/entity`) for normalised task storage
 - [ ] **NGR-12**: At least one effect with proper error handling (using `catchError` + failure action dispatch)
 - [x] **NGR-13**: Command vs event action naming pattern (e.g., `moveTask` command → `moveTaskSuccess` / `moveTaskFailure` events)
 - [x] **NGR-14**: Local mock service simulating server responses with RxJS `delay()` and configurable failure
@@ -139,9 +139,9 @@
 | NGR-06 | Phase 2: NGRX Store | Pending |
 | NGR-07 | Phase 2: NGRX Store | Pending |
 | NGR-08 | Phase 2: NGRX Store | Pending |
-| NGR-09 | Phase 2: NGRX Store | Pending |
-| NGR-10 | Phase 2: NGRX Store | Pending |
-| NGR-11 | Phase 2: NGRX Store | Pending |
+| NGR-09 | Phase 2: NGRX Store | Complete |
+| NGR-10 | Phase 2: NGRX Store | Complete |
+| NGR-11 | Phase 2: NGRX Store | Complete |
 | NGR-12 | Phase 2: NGRX Store | Pending |
 | NGR-13 | Phase 2: NGRX Store | Complete |
 | NGR-14 | Phase 2: NGRX Store | Complete |

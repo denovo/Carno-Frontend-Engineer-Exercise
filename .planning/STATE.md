@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-01-PLAN.md (mock service layer complete)
-last_updated: "2026-03-11T15:33:05.191Z"
+stopped_at: Completed 02-03-PLAN.md (task reducer with optimistic update)
+last_updated: "2026-03-11T15:36:45.516Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
   completed_phases: 1
   total_plans: 8
-  completed_plans: 4
+  completed_plans: 5
   percent: 0
 ---
 
@@ -55,6 +55,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01 P02 | 10 | 2 tasks | 7 files |
 | Phase 02-ngrx-store P02 | 1 | 1 tasks | 1 files |
 | Phase 02 P01 | 8 | 2 tasks | 6 files |
+| Phase 02-ngrx-store P03 | 5 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -82,6 +83,9 @@ Recent decisions affecting current work:
 - [Phase 02]: models/index.ts uses export type for interfaces (isolatedModules TS1205 requirement)
 - [Phase 02]: MOCK_COLUMNS and MOCK_TASKS exported separately alongside MOCK_BOARD for clean service imports
 - [Phase 02]: TaskMockService: public latencyMs/shouldFail fields (not private) for direct test override without DI
+- [Phase 02-03]: TaskState.error is string | null (non-optional) — createFeature auto-selector requirement
+- [Phase 02-03]: taskAdapter exported separately from tasksFeature — Plan 04 selectors need it for adapter.getSelectors()
+- [Phase 02-03]: moveTaskSuccess is a no-op reducer handler — optimistic update already applied on moveTask dispatch
 
 ### Pending Todos
 
@@ -94,6 +98,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11T15:32:57.148Z
-Stopped at: Completed 02-01-PLAN.md (mock service layer complete)
+Last session: 2026-03-11T15:36:41.253Z
+Stopped at: Completed 02-03-PLAN.md (task reducer with optimistic update)
 Resume file: None
