@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-02-PLAN.md (NGRX actions layer complete)
-last_updated: "2026-03-11T15:28:52.102Z"
+stopped_at: Completed 02-01-PLAN.md (mock service layer complete)
+last_updated: "2026-03-11T15:33:05.191Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
   completed_phases: 1
   total_plans: 8
-  completed_plans: 3
+  completed_plans: 4
   percent: 0
 ---
 
@@ -54,6 +54,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01 P01 | 45 | 3 tasks | 30 files |
 | Phase 01 P02 | 10 | 2 tasks | 7 files |
 | Phase 02-ngrx-store P02 | 1 | 1 tasks | 1 files |
+| Phase 02 P01 | 8 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -78,6 +79,9 @@ Recent decisions affecting current work:
 - [Phase 02-ngrx-store]: moveTask carries previousColumnId in props for optimistic rollback without selector call in effects
 - [Phase 02-ngrx-store]: addTask uses Omit<Task, id|createdAt|updatedAt> — server assigns those fields, full Task returned in addTaskSuccess
 - [Phase 02-ngrx-store]: updateTask uses Update<Task> from @ngrx/entity for partial entity changes
+- [Phase 02]: models/index.ts uses export type for interfaces (isolatedModules TS1205 requirement)
+- [Phase 02]: MOCK_COLUMNS and MOCK_TASKS exported separately alongside MOCK_BOARD for clean service imports
+- [Phase 02]: TaskMockService: public latencyMs/shouldFail fields (not private) for direct test override without DI
 
 ### Pending Todos
 
@@ -90,6 +94,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11T15:28:52.098Z
-Stopped at: Completed 02-02-PLAN.md (NGRX actions layer complete)
+Last session: 2026-03-11T15:32:57.148Z
+Stopped at: Completed 02-01-PLAN.md (mock service layer complete)
 Resume file: None

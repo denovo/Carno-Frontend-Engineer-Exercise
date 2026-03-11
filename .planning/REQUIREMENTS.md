@@ -28,7 +28,7 @@
 - [ ] **NGR-11**: Entity adapter (`@ngrx/entity`) for normalised task storage
 - [ ] **NGR-12**: At least one effect with proper error handling (using `catchError` + failure action dispatch)
 - [x] **NGR-13**: Command vs event action naming pattern (e.g., `moveTask` command → `moveTaskSuccess` / `moveTaskFailure` events)
-- [ ] **NGR-14**: Local mock service simulating server responses with RxJS `delay()` and configurable failure
+- [x] **NGR-14**: Local mock service simulating server responses with RxJS `delay()` and configurable failure
 
 ### Signals Integration
 
@@ -144,7 +144,7 @@
 | NGR-11 | Phase 2: NGRX Store | Pending |
 | NGR-12 | Phase 2: NGRX Store | Pending |
 | NGR-13 | Phase 2: NGRX Store | Complete |
-| NGR-14 | Phase 2: NGRX Store | Pending |
+| NGR-14 | Phase 2: NGRX Store | Complete |
 | APP-01 | Phase 3: Component Layer | Pending |
 | APP-02 | Phase 3: Component Layer | Pending |
 | APP-03 | Phase 3: Component Layer | Pending |
