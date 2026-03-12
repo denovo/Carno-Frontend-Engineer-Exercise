@@ -1,10 +1,11 @@
-import { Component, DestroyRef, inject, OnInit, signal } from "@angular/core";
+import { Component, DestroyRef, inject, OnInit, signal, Signal } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Store } from "@ngrx/store";
 import { Actions, ofType } from "@ngrx/effects";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatDialog } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
@@ -22,6 +23,7 @@ import {
   selectTasksByColumn,
 } from "@app/core/store";
 import { MOCK_COLUMNS } from "@app/core/services/mock-data";
+import { ThemeService } from "@app/core/services/theme.service";
 import { Task } from "@app/shared/models";
 
 import { ColumnComponent } from "../column/column.component";
@@ -32,6 +34,7 @@ import {
 } from "../task-form/task-form.component";
 import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
 import { MoveEvent } from "../task-card/task-card.component";
+import { WidgetBarComponent } from "../widget-bar/widget-bar.component";
 
 @Component({
   selector: "app-board-page",
@@ -40,14 +43,17 @@ import { MoveEvent } from "../task-card/task-card.component";
     CommonModule,
     MatToolbarModule,
     MatButtonModule,
+    MatIconModule,
     MatProgressBarModule,
     ColumnComponent,
+    WidgetBarComponent,
   ],
   templateUrl: "./board-page.component.html",
   styleUrl: "./board-page.component.scss",
 })
 export class BoardPageComponent implements OnInit {
   private readonly store = inject(Store);
+  readonly theme = inject(ThemeService);
   private readonly actions$ = inject(Actions);
   private readonly dialog = inject(MatDialog);
   private readonly snackBar = inject(MatSnackBar);
@@ -61,12 +67,12 @@ export class BoardPageComponent implements OnInit {
 
   // SIG-07: Per-column task signals — created once at class init, not in template
   // Anti-pattern avoided: factory selector NOT called inside template expressions
-  readonly tasksByColumn = Object.fromEntries(
+  readonly tasksByColumn: Record<string, Signal<Task[]>> = Object.fromEntries(
     MOCK_COLUMNS.map((col) => [
       col.id,
       this.store.selectSignal(selectTasksByColumn(col.id)),
     ])
-  ) as Record<string, ReturnType<typeof this.store.selectSignal>>;
+  );
 
   // Local signal for pending task IDs (optimistic move feedback)
   private readonly pendingTaskIds = signal<Set<string>>(new Set());
