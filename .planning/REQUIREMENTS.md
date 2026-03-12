@@ -38,8 +38,8 @@
 - [x] **SIG-04**: Computed signal for overdue indicator (based on task age or due date)
 - [x] **SIG-05**: Local UI state managed with signals — expansion state, edit mode
 - [x] **SIG-06**: `model()` two-way binding for edit mode in TaskCard
-- [ ] **SIG-07**: NGRX selector bridged to Angular signal via `store.selectSignal()` or `toSignal()` in smart components
-- [ ] **SIG-08**: Smart components pass signal values down to presentational components via `input()` signals
+- [x] **SIG-07**: NGRX selector bridged to Angular signal via `store.selectSignal()` or `toSignal()` in smart components
+- [x] **SIG-08**: Smart components pass signal values down to presentational components via `input()` signals
 
 ### Dynamic Component Rendering
 
@@ -63,7 +63,7 @@
 
 ### Application Shell
 
-- [ ] **APP-01**: Single board view with columns displayed horizontally
+- [x] **APP-01**: Single board view with columns displayed horizontally
 - [x] **APP-02**: Task card displayed in its column with title, priority indicator, assignee
 - [x] **APP-03**: Create task form/dialog (title, description, priority, assignee)
 - [x] **APP-04**: Edit task — inline or dialog, updates task details in store
@@ -145,7 +145,7 @@
 | NGR-12 | Phase 2: NGRX Store | Complete |
 | NGR-13 | Phase 2: NGRX Store | Complete |
 | NGR-14 | Phase 2: NGRX Store | Complete |
-| APP-01 | Phase 3: Component Layer | Pending |
+| APP-01 | Phase 3: Component Layer | Complete |
 | APP-02 | Phase 3: Component Layer | Complete |
 | APP-03 | Phase 3: Component Layer | Complete |
 | APP-04 | Phase 3: Component Layer | Complete |
@@ -159,8 +159,8 @@
 | SIG-04 | Phase 3: Component Layer | Complete |
 | SIG-05 | Phase 3: Component Layer | Complete |
 | SIG-06 | Phase 3: Component Layer | Complete |
-| SIG-07 | Phase 3: Component Layer | Pending |
-| SIG-08 | Phase 3: Component Layer | Pending |
+| SIG-07 | Phase 3: Component Layer | Complete |
+| SIG-08 | Phase 3: Component Layer | Complete |
 | DYN-01 | Phase 4: Dynamic Widget System | Pending |
 | DYN-02 | Phase 4: Dynamic Widget System | Pending |
 | DYN-03 | Phase 4: Dynamic Widget System | Pending |

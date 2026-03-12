@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 03-02-PLAN.md
-last_updated: "2026-03-12T13:46:41.846Z"
+stopped_at: Completed 03-03-PLAN.md
+last_updated: "2026-03-12T14:55:26.220Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 11
-  completed_plans: 10
+  completed_plans: 11
   percent: 0
 ---
 
@@ -61,6 +61,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-ngrx-store P06 | 55 | 2 tasks | 2 files |
 | Phase 03 P01 | 8 | 2 tasks | 6 files |
 | Phase 03-component-layer P02 | 4 | 2 tasks | 7 files |
+| Phase 03 P03 | 45 | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -105,6 +106,9 @@ Recent decisions affecting current work:
 - [Phase 03-02]: ColumnComponent passes pendingTaskIds as Set<string> input — smart parent computes the set, dumb component calls .has(task.id) in template
 - [Phase 03-02]: TaskFormData.showColumnSelector flag gates column select rendering — single dialog serves both per-column and global add
 - [Phase 03-02]: [mat-dialog-close]='true' on Delete vs bare mat-dialog-close on Cancel — caller guards with if(confirmed === true)
+- [Phase 03-03]: Toolbar belongs inside BoardPageComponent — AppComponent cannot pass callbacks to routed child; board toolbar is board-specific
+- [Phase 03-03]: tasksByColumn Record created at class init with Object.fromEntries — prevents factory selector called inside template change-detection cycle
+- [Phase 03-03]: pendingTaskIds managed as local signal (not store state) — optimistic move feedback is transient UI-only state
 
 ### Pending Todos
 
@@ -117,6 +121,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-12T13:46:41.842Z
-Stopped at: Completed 03-02-PLAN.md
+Last session: 2026-03-12T14:54:51.125Z
+Stopped at: Completed 03-03-PLAN.md
 Resume file: None
