@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 04-dynamic-widget-system-04-01-PLAN.md
-last_updated: "2026-03-12T19:57:03.751Z"
+stopped_at: Completed 04-dynamic-widget-system-04-02-PLAN.md
+last_updated: "2026-03-12T20:04:12.101Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
   completed_phases: 3
   total_plans: 14
-  completed_plans: 12
+  completed_plans: 13
   percent: 0
 ---
 
@@ -63,6 +63,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03-component-layer P02 | 4 | 2 tasks | 7 files |
 | Phase 03 P03 | 45 | 3 tasks | 6 files |
 | Phase 04-dynamic-widget-system P01 | 15 | 2 tasks | 4 files |
+| Phase 04-dynamic-widget-system P02 | 5 | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -113,6 +114,8 @@ Recent decisions affecting current work:
 - [Phase 04-dynamic-widget-system]: untracked() wraps renderOne() in config effect — Angular 21 NG0602 prohibits nested effect() in reactive context
 - [Phase 04-dynamic-widget-system]: Observable imported from 'rxjs' in widget.models.ts — @angular/core re-exports but isolatedModules fails to resolve
 - [Phase 04-dynamic-widget-system]: Attribute directive template uses plain attribute (appDynamicWidgetOutlet) not property binding ([appDynamicWidgetOutlet])
+- [Phase 04-dynamic-widget-system]: ng test --watch=false (full suite) required for templateUrl/styleUrl components — --include flag breaks
+- [Phase 04-dynamic-widget-system]: provideAnimationsAsync() required in TestBed for MatProgressBar component tests
 
 ### Pending Todos
 
@@ -125,6 +128,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-12T19:57:03.747Z
-Stopped at: Completed 04-dynamic-widget-system-04-01-PLAN.md
+Last session: 2026-03-12T20:04:12.096Z
+Stopped at: Completed 04-dynamic-widget-system-04-02-PLAN.md
 Resume file: None

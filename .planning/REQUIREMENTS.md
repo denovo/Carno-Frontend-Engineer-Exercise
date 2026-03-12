@@ -56,8 +56,8 @@
 ### Widget System
 
 - [x] **WGT-01**: `WidgetStatus<T>` generic interface with value, status (success|warning|error|neutral), optional icon, optional tooltip
-- [ ] **WGT-02**: `TaskCountWidget` displaying task count with status colouring derived from store
-- [ ] **WGT-03**: `ProgressWidget` displaying visual progress bar for completion rate
+- [x] **WGT-02**: `TaskCountWidget` displaying task count with status colouring derived from store
+- [x] **WGT-03**: `ProgressWidget` displaying visual progress bar for completion rate
 - [ ] **WGT-04**: Widget state derived from store selectors using computed signals — widgets react automatically to store changes
 - [x] **WGT-05**: Generic type parameters on `DynamicWidgetOutletDirective` configuration for type-safe widget composition
 
@@ -171,8 +171,8 @@
 | DYN-08 | Phase 4: Dynamic Widget System | Complete |
 | DYN-09 | Phase 4: Dynamic Widget System | Complete |
 | WGT-01 | Phase 4: Dynamic Widget System | Complete |
-| WGT-02 | Phase 4: Dynamic Widget System | Pending |
-| WGT-03 | Phase 4: Dynamic Widget System | Pending |
+| WGT-02 | Phase 4: Dynamic Widget System | Complete |
+| WGT-03 | Phase 4: Dynamic Widget System | Complete |
 | WGT-04 | Phase 4: Dynamic Widget System | Pending |
 | WGT-05 | Phase 4: Dynamic Widget System | Complete |
 | TOOL-03 | Phase 5: Testing and Storybook | Pending |
