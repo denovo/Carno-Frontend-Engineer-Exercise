@@ -65,12 +65,12 @@
 
 - [ ] **APP-01**: Single board view with columns displayed horizontally
 - [x] **APP-02**: Task card displayed in its column with title, priority indicator, assignee
-- [ ] **APP-03**: Create task form/dialog (title, description, priority, assignee)
-- [ ] **APP-04**: Edit task — inline or dialog, updates task details in store
-- [ ] **APP-05**: Delete task with confirmation
-- [ ] **APP-06**: Move task between columns via select box (triggers optimistic update)
+- [x] **APP-03**: Create task form/dialog (title, description, priority, assignee)
+- [x] **APP-04**: Edit task — inline or dialog, updates task details in store
+- [x] **APP-05**: Delete task with confirmation
+- [x] **APP-06**: Move task between columns via select box (triggers optimistic update)
 - [x] **APP-07**: Angular Material components used for UI — minimal custom styling
-- [ ] **APP-08**: Smart (container) / dumb (presentational) component separation throughout
+- [x] **APP-08**: Smart (container) / dumb (presentational) component separation throughout
 
 ### Tooling and Quality
 
@@ -147,12 +147,12 @@
 | NGR-14 | Phase 2: NGRX Store | Complete |
 | APP-01 | Phase 3: Component Layer | Pending |
 | APP-02 | Phase 3: Component Layer | Complete |
-| APP-03 | Phase 3: Component Layer | Pending |
-| APP-04 | Phase 3: Component Layer | Pending |
-| APP-05 | Phase 3: Component Layer | Pending |
-| APP-06 | Phase 3: Component Layer | Pending |
+| APP-03 | Phase 3: Component Layer | Complete |
+| APP-04 | Phase 3: Component Layer | Complete |
+| APP-05 | Phase 3: Component Layer | Complete |
+| APP-06 | Phase 3: Component Layer | Complete |
 | APP-07 | Phase 3: Component Layer | Complete |
-| APP-08 | Phase 3: Component Layer | Pending |
+| APP-08 | Phase 3: Component Layer | Complete |
 | SIG-01 | Phase 3: Component Layer | Complete |
 | SIG-02 | Phase 3: Component Layer | Complete |
 | SIG-03 | Phase 3: Component Layer | Complete |
