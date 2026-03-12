@@ -1,4 +1,5 @@
-import type { Observable, Signal, Type } from "@angular/core";
+import type { Signal, Type } from "@angular/core";
+import type { Observable } from "rxjs";
 
 /** Represents a displayable widget value with a status category for visual styling. */
 export type WidgetStatus<T> = {
