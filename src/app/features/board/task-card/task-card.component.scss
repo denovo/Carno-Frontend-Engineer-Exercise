@@ -1,0 +1,71 @@
+:host {
+  display: block;
+  margin-bottom: 8px;
+}
+
+mat-card {
+  transition: opacity 0.2s ease;
+
+  &.pending {
+    opacity: 0.5;
+  }
+
+  &.overdue {
+    border-left: 4px solid #f44336;
+  }
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+.task-description {
+  white-space: pre-wrap;
+  margin-bottom: 8px;
+}
+
+.task-assignee {
+  margin-bottom: 4px;
+}
+
+.task-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.edit-mode-note {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.85em;
+}
+
+/* Priority border indicators */
+.priority-low {
+  /* subtle — no border override */
+}
+
+.priority-medium {
+  /* default — no border override */
+}
+
+.priority-high {
+  border-left: 4px solid #ff9800;
+}
+
+.priority-critical {
+  border-left: 4px solid #f44336;
+}

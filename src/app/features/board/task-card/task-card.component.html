@@ -1,0 +1,58 @@
+<mat-card
+  [class.pending]="isPending()"
+  [class.overdue]="isOverdue()"
+  [class]="priorityClass()"
+>
+  <!-- Collapsed section: always visible -->
+  <mat-card-header>
+    <mat-card-title>{{ task().title }}</mat-card-title>
+    <div class="header-actions">
+      <mat-chip [class]="priorityClass()">{{ task().priority }}</mat-chip>
+      <button mat-icon-button (click)="toggleExpand()" [attr.aria-label]="isExpanded() ? 'Collapse task' : 'Expand task'">
+        <mat-icon>{{ isExpanded() ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </button>
+    </div>
+  </mat-card-header>
+
+  <!-- Expanded section: only visible when isExpanded() is true -->
+  @if (isExpanded()) {
+    <mat-card-content>
+      @if (task().description) {
+        <p class="task-description">{{ task().description }}</p>
+      }
+
+      @if (task().assignee) {
+        <p class="task-assignee"><strong>Assignee:</strong> {{ task().assignee }}</p>
+      }
+
+      <p class="task-dates">
+        <small>Created: {{ formattedCreatedAt() }}</small>
+        <small>Updated: {{ formattedUpdatedAt() }}</small>
+      </p>
+
+      <!-- Move select: list available columns -->
+      <mat-form-field>
+        <mat-label>Move to column</mat-label>
+        <mat-select [value]="task().columnId" (selectionChange)="onMoveChange($event.value)">
+          @for (col of columns(); track col.id) {
+            <mat-option [value]="col.id">{{ col.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Edit mode indicator (actual form opens via MatDialog from smart parent) -->
+      @if (isEditMode()) {
+        <p class="edit-mode-note"><em>Edit form opens via dialog</em></p>
+      }
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button (click)="onEdit()" aria-label="Edit task">
+        <mat-icon>edit</mat-icon> Edit
+      </button>
+      <button mat-button color="warn" (click)="onDelete()" aria-label="Delete task">
+        <mat-icon>delete</mat-icon> Delete
+      </button>
+    </mat-card-actions>
+  }
+</mat-card>
