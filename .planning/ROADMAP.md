@@ -84,11 +84,12 @@ Plans:
   3. TaskCountWidget displays current task count with status colouring that updates automatically when tasks are added or removed
   4. ProgressWidget displays a visual progress bar reflecting the completion rate that updates automatically when tasks move to the Done column
   5. Destroying or reconfiguring the directive cleans up all ComponentRefs and subscriptions without memory leaks
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
+- [ ] 04-01-PLAN.md — Widget types (WidgetStatus, WidgetConfig, InputBinding), threshold constants, DynamicWidgetOutletDirective with full static/observable/signal input forwarding and output routing
+- [ ] 04-02-PLAN.md — TaskCountWidgetComponent (status chip with colour dot) and ProgressWidgetComponent (MatProgressBar with percentage label)
+- [ ] 04-03-PLAN.md — WidgetBarComponent smart container + board-page integration + human visual verification
 
 ### Phase 5: Testing and Storybook
 **Goal**: Comprehensive test coverage and component documentation validate that every major feature works correctly and is visually inspectable
