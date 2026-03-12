@@ -1,5 +1,6 @@
 import { ApplicationConfig, isDevMode, provideBrowserGlobalErrorListeners } from "@angular/core";
 import { provideRouter } from "@angular/router";
+import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { provideStore } from "@ngrx/store";
 import { provideEffects } from "@ngrx/effects";
 import { provideStoreDevtools } from "@ngrx/store-devtools";
@@ -11,6 +12,7 @@ import { TaskEffects } from "@app/core/store/effects/task.effects";
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
+    provideAnimationsAsync(),
     provideRouter(routes),
     provideStore({ [tasksFeatureKey]: tasksReducer }),
     provideEffects([TaskEffects]),
