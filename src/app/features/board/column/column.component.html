@@ -1,0 +1,28 @@
+<div class="column-header">
+  <h3>{{ column().name }}</h3>
+  <span class="task-count">({{ tasks().length }})</span>
+</div>
+
+<mat-divider />
+
+<div class="task-list">
+  @if (tasks().length === 0) {
+    <p class="empty-state">No tasks yet</p>
+  }
+  @for (task of tasks(); track task.id) {
+    <app-task-card
+      [task]="task"
+      [isPending]="pendingTaskIds().has(task.id)"
+      [columns]="allColumns()"
+      (move)="moveTask.emit($event)"
+      (edit)="editTask.emit($event)"
+      (delete)="deleteTask.emit($event)"
+    />
+  }
+</div>
+
+<div class="column-footer">
+  <button mat-button (click)="addTask.emit(column().id)">
+    + Add task
+  </button>
+</div>

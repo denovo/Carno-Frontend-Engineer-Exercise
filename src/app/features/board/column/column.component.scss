@@ -1,0 +1,43 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+  max-width: 320px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .task-count {
+    color: #666;
+    font-size: 0.85rem;
+  }
+}
+
+.task-list {
+  flex: 1;
+  min-height: 60px;
+}
+
+.empty-state {
+  color: #999;
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 16px 0;
+}
+
+.column-footer {
+  margin-top: 8px;
+}
