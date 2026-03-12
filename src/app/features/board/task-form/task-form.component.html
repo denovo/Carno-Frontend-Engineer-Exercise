@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>{{ isEditMode ? 'Edit Task' : 'New Task' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" class="task-form">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Title *</mat-label>
+      <input matInput formControlName="title" placeholder="Task title" />
+      @if (form.controls.title.hasError('required')) {
+        <mat-error>Title is required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" rows="3" placeholder="Optional description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Priority</mat-label>
+      <mat-select formControlName="priority">
+        @for (p of priorityOptions; track p) {
+          <mat-option [value]="p">{{ p }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Assignee</mat-label>
+      <input matInput formControlName="assignee" placeholder="Optional assignee" />
+    </mat-form-field>
+
+    @if (data.showColumnSelector) {
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Column</mat-label>
+        <mat-select formControlName="columnId">
+          @for (col of data.columns; track col.id) {
+            <mat-option [value]="col.id">{{ col.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    }
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="submit()" [disabled]="form.invalid">
+    {{ isEditMode ? 'Save' : 'Create' }}
+  </button>
+</mat-dialog-actions>
