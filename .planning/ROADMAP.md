@@ -67,11 +67,12 @@ Plans:
   3. A user can edit a task's details (title, description, priority, assignee) and see the changes reflected immediately
   4. A user can delete a task with a confirmation step, and it disappears from the board
   5. A user can move a task between columns via a select box, and the UI updates optimistically (with rollback on failure)
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md — Foundation (provideAnimationsAsync, route stub) + TaskCardComponent with full signal API: input(), computed(), signal(), output() (SIG-01 through SIG-06, APP-02, APP-07)
+- [ ] 03-02-PLAN.md — ColumnComponent (dumb column with task list) + TaskFormComponent (create/edit dialog) + ConfirmDialogComponent (delete confirmation) (APP-03, APP-04, APP-05, APP-06, APP-07, APP-08)
+- [ ] 03-03-PLAN.md — BoardPageComponent smart container: store.selectSignal() bridge, all CRUD handlers, pending state tracking, app shell toolbar (APP-01, APP-02, APP-03, APP-04, APP-05, APP-06, APP-07, APP-08, SIG-07, SIG-08)
 
 ### Phase 4: Dynamic Widget System
 **Goal**: A generic dynamic component rendering directive powers a widget dashboard that displays live task statistics derived from the store
@@ -130,7 +131,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 |-------|----------------|--------|-----------|
 | 1. Project Scaffolding and Tooling | 2/2 | Complete   | 2026-03-11 |
 | 2. NGRX Store | 6/6 | Complete   | 2026-03-11 |
-| 3. Component Layer | 0/? | Not started | - |
+| 3. Component Layer | 0/3 | Not started | - |
 | 4. Dynamic Widget System | 0/? | Not started | - |
 | 5. Testing and Storybook | 0/? | Not started | - |
 | 6. CI/CD, Deployment, and Documentation | 0/? | Not started | - |
