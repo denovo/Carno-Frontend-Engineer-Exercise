@@ -1,0 +1,9 @@
+<span class="progress-widget">
+  <span class="progress-label">Progress:</span>
+  <mat-progress-bar
+    mode="determinate"
+    [value]="status().value"
+    class="progress-bar"
+  />
+  <span class="progress-value">{{ status().value }}%</span>
+</span>
