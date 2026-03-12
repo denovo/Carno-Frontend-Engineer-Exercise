@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" class="board-toolbar">
+  <span>Petello Board</span>
+  <span class="toolbar-spacer"></span>
+  <button mat-raised-button (click)="onGlobalAddTask()">+ Add Task</button>
+</mat-toolbar>
+
+@if (loading()) {
+  <mat-progress-bar mode="indeterminate" class="loading-bar" />
+}
+
+<div class="board-columns">
+  @for (col of columns; track col.id) {
+    <app-column
+      [column]="col"
+      [tasks]="tasksByColumn[col.id]()"
+      [allColumns]="columns"
+      [pendingTaskIds]="getPendingTaskIds()"
+      (addTask)="onAddTask($event)"
+      (moveTask)="onMoveTask($event)"
+      (editTask)="onEditTask($event)"
+      (deleteTask)="onDeleteTask($event)"
+    />
+  }
+</div>

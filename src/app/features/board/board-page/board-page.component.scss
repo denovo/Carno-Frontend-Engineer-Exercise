@@ -1,0 +1,25 @@
+.board-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.toolbar-spacer {
+  flex: 1;
+}
+
+.loading-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.board-columns {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding: 16px;
+  overflow-x: auto;
+  flex: 1;
+  align-items: flex-start;
+}
