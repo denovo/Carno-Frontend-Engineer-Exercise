@@ -43,23 +43,23 @@
 
 ### Dynamic Component Rendering
 
-- [ ] **DYN-01**: `DynamicWidgetOutletDirective` structural directive using `ViewContainerRef`
-- [ ] **DYN-02**: Directive accepts single component configuration or array of configurations
-- [ ] **DYN-03**: Configuration interface with generic type safety for component inputs and outputs
-- [ ] **DYN-04**: Passes static value inputs to dynamically rendered components
-- [ ] **DYN-05**: Passes Observable inputs to dynamically rendered components (subscribes internally)
-- [ ] **DYN-06**: Passes Signal inputs to dynamically rendered components (uses `effect()` or `toObservable()`)
-- [ ] **DYN-07**: Subscribes to component outputs and forwards events to provided handler functions
-- [ ] **DYN-08**: Proper lifecycle management — `ComponentRef.destroy()` called on directive destroy
-- [ ] **DYN-09**: All input subscriptions tracked and cleaned up using `DestroyRef` or `takeUntilDestroyed`
+- [x] **DYN-01**: `DynamicWidgetOutletDirective` structural directive using `ViewContainerRef`
+- [x] **DYN-02**: Directive accepts single component configuration or array of configurations
+- [x] **DYN-03**: Configuration interface with generic type safety for component inputs and outputs
+- [x] **DYN-04**: Passes static value inputs to dynamically rendered components
+- [x] **DYN-05**: Passes Observable inputs to dynamically rendered components (subscribes internally)
+- [x] **DYN-06**: Passes Signal inputs to dynamically rendered components (uses `effect()` or `toObservable()`)
+- [x] **DYN-07**: Subscribes to component outputs and forwards events to provided handler functions
+- [x] **DYN-08**: Proper lifecycle management — `ComponentRef.destroy()` called on directive destroy
+- [x] **DYN-09**: All input subscriptions tracked and cleaned up using `DestroyRef` or `takeUntilDestroyed`
 
 ### Widget System
 
-- [ ] **WGT-01**: `WidgetStatus<T>` generic interface with value, status (success|warning|error|neutral), optional icon, optional tooltip
+- [x] **WGT-01**: `WidgetStatus<T>` generic interface with value, status (success|warning|error|neutral), optional icon, optional tooltip
 - [ ] **WGT-02**: `TaskCountWidget` displaying task count with status colouring derived from store
 - [ ] **WGT-03**: `ProgressWidget` displaying visual progress bar for completion rate
 - [ ] **WGT-04**: Widget state derived from store selectors using computed signals — widgets react automatically to store changes
-- [ ] **WGT-05**: Generic type parameters on `DynamicWidgetOutletDirective` configuration for type-safe widget composition
+- [x] **WGT-05**: Generic type parameters on `DynamicWidgetOutletDirective` configuration for type-safe widget composition
 
 ### Application Shell
 
@@ -161,20 +161,20 @@
 | SIG-06 | Phase 3: Component Layer | Complete |
 | SIG-07 | Phase 3: Component Layer | Complete |
 | SIG-08 | Phase 3: Component Layer | Complete |
-| DYN-01 | Phase 4: Dynamic Widget System | Pending |
-| DYN-02 | Phase 4: Dynamic Widget System | Pending |
-| DYN-03 | Phase 4: Dynamic Widget System | Pending |
-| DYN-04 | Phase 4: Dynamic Widget System | Pending |
-| DYN-05 | Phase 4: Dynamic Widget System | Pending |
-| DYN-06 | Phase 4: Dynamic Widget System | Pending |
-| DYN-07 | Phase 4: Dynamic Widget System | Pending |
-| DYN-08 | Phase 4: Dynamic Widget System | Pending |
-| DYN-09 | Phase 4: Dynamic Widget System | Pending |
-| WGT-01 | Phase 4: Dynamic Widget System | Pending |
+| DYN-01 | Phase 4: Dynamic Widget System | Complete |
+| DYN-02 | Phase 4: Dynamic Widget System | Complete |
+| DYN-03 | Phase 4: Dynamic Widget System | Complete |
+| DYN-04 | Phase 4: Dynamic Widget System | Complete |
+| DYN-05 | Phase 4: Dynamic Widget System | Complete |
+| DYN-06 | Phase 4: Dynamic Widget System | Complete |
+| DYN-07 | Phase 4: Dynamic Widget System | Complete |
+| DYN-08 | Phase 4: Dynamic Widget System | Complete |
+| DYN-09 | Phase 4: Dynamic Widget System | Complete |
+| WGT-01 | Phase 4: Dynamic Widget System | Complete |
 | WGT-02 | Phase 4: Dynamic Widget System | Pending |
 | WGT-03 | Phase 4: Dynamic Widget System | Pending |
 | WGT-04 | Phase 4: Dynamic Widget System | Pending |
-| WGT-05 | Phase 4: Dynamic Widget System | Pending |
+| WGT-05 | Phase 4: Dynamic Widget System | Complete |
 | TOOL-03 | Phase 5: Testing and Storybook | Pending |
 | TOOL-04 | Phase 5: Testing and Storybook | Pending |
 | TOOL-05 | Phase 5: Testing and Storybook | Pending |

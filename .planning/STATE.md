@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 4 context gathered
-last_updated: "2026-03-12T16:12:36.734Z"
+stopped_at: Completed 04-dynamic-widget-system-04-01-PLAN.md
+last_updated: "2026-03-12T19:57:03.751Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
   completed_phases: 3
-  total_plans: 11
-  completed_plans: 11
+  total_plans: 14
+  completed_plans: 12
   percent: 0
 ---
 
@@ -62,6 +62,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03 P01 | 8 | 2 tasks | 6 files |
 | Phase 03-component-layer P02 | 4 | 2 tasks | 7 files |
 | Phase 03 P03 | 45 | 3 tasks | 6 files |
+| Phase 04-dynamic-widget-system P01 | 15 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -109,6 +110,9 @@ Recent decisions affecting current work:
 - [Phase 03-03]: Toolbar belongs inside BoardPageComponent — AppComponent cannot pass callbacks to routed child; board toolbar is board-specific
 - [Phase 03-03]: tasksByColumn Record created at class init with Object.fromEntries — prevents factory selector called inside template change-detection cycle
 - [Phase 03-03]: pendingTaskIds managed as local signal (not store state) — optimistic move feedback is transient UI-only state
+- [Phase 04-dynamic-widget-system]: untracked() wraps renderOne() in config effect — Angular 21 NG0602 prohibits nested effect() in reactive context
+- [Phase 04-dynamic-widget-system]: Observable imported from 'rxjs' in widget.models.ts — @angular/core re-exports but isolatedModules fails to resolve
+- [Phase 04-dynamic-widget-system]: Attribute directive template uses plain attribute (appDynamicWidgetOutlet) not property binding ([appDynamicWidgetOutlet])
 
 ### Pending Todos
 
@@ -121,6 +125,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-12T16:12:36.726Z
-Stopped at: Phase 4 context gathered
-Resume file: .planning/phases/04-dynamic-widget-system/04-CONTEXT.md
+Last session: 2026-03-12T19:57:03.747Z
+Stopped at: Completed 04-dynamic-widget-system-04-01-PLAN.md
+Resume file: None
