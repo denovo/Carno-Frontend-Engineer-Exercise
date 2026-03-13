@@ -1,212 +1,214 @@
-# Senior Angular Frontend Engineer - Take Home Exercise
+# Petello — Task Board Application
 
-**Time Estimate**: 2 hours
-**Technology**: Angular 17+, TypeScript, NGRX, Signals
+A Trello-inspired task board built with Angular 21, NGRX 19, and Angular Material as a senior engineering take-home exercise. Every architectural decision documented here was made deliberately — the goal is a codebase an interviewer can walk through line by line and understand the reasoning behind each choice.
 
----
-
-> ### ⚠️ Important: A Note on AI-Assisted Development
->
-> We embrace AI coding tools—our engineers use them daily to accelerate their work. However, **using AI effectively requires understanding the fundamentals**. Without this foundation, you're essentially "vibe coding": accepting AI output without the ability to validate, debug, or extend it. This is not something we allow.
->
-> **Our expectation:**
-> - You may use AI tools (Copilot, ChatGPT, Claude, etc.) to assist with this exercise. 
-> - **Be transparent**: In your README, briefly describe how you used AI assistance (if at all), what it helped with, and what you wrote or significantly modified yourself
-> - **Understand your code**: You will be expected to walk through your solution in detail during the technical interview, explaining your architectural decisions and implementation choices
-> - **Live follow-up**: During the interview call, you will complete a short coding exercise via screenshare. This will assess your ability to work with the concepts demonstrated in your submission
->
-> We value engineers who can leverage AI as a force multiplier—not as a replacement for understanding. If you use AI, use it wisely, and be prepared to defend every line of your submission. You may NOT use it to blindly complete the entire exercise. We will not proceed with candidates with whom we suspect did this.
+**[Live Demo](https://carno-frontend-engineer-exercise.vercel.app/)** — deployed on Vercel.
 
 ---
 
-## Overview
+## Quick Start
 
-You are building a **Task Board Application** - a simplified project management tool where users can create, organize, and track tasks across multiple boards. This exercise assesses your ability to architect scalable Angular applications with proper state management, signals integration, and dynamic rendering patterns.
+**Prerequisites:** Node 23 (managed via [nvm](https://github.com/nvm-sh/nvm))
 
----
+```bash
+nvm use                  # installs/switches to Node 23 from .nvmrc
+npm install              # install dependencies (see note on --legacy-peer-deps below)
+ng serve                 # development server at http://localhost:4200
+```
 
-## Requirements
+> **Peer dep note:** Storybook 10 has unresolved peer dependency conflicts with Angular 21. If `npm install` fails, run `npm install --legacy-peer-deps`.
 
-### 1. Core Data Models
+### Other commands
 
-Design and implement TypeScript interfaces for the following entities:
-
-**Board**
-- Should contain an identifier, name, and a collection of columns
-
-**Column**
-- Should contain an identifier, name, and ordering information
-
-**Task**
-- Should contain: identifier, title, optional description, reference to its parent column, priority level (support at least 4 priority tiers), optional assignee, and timestamp information for creation and updates
-- Consider using TypeScript union types or enums for the priority levels
-
-*We're looking for: Strong typing, appropriate use of optional properties, and consideration of relationships between entities.*
-
-### 2. State Management (NGRX)
-
-Implement a complete NGRX store for managing tasks.
-
-**Actions to implement:**
-- Loading tasks for a board
-- Adding a new task
-- Moving a task between columns (this should use optimistic updates)
-  - Drag and drop functionality is not the core focus here (though nice to have), we would accept it if the user can change the columns by simply editng a column via a select box. We care more about the state management side of things in the context of this exercise.
-- Updating task details
-- Removing a task
-
-**Selectors to implement:**
-- A parameterised/factory selector that returns tasks filtered by a specific column
-- A selector that returns a count breakdown grouped by priority
-- A selector that calculates the percentage of tasks that have reached the final column (completion rate)
-
-**Effects requirements:**
-- Implement at least one effect demonstrating proper error handling
-- Demonstrate how you handle the difference between optimistic and pessimistic updates
-- Show your rollback strategy when a `moveTask` operation fails on the server
-
-*We're looking for: Proper action naming conventions, selector composition and memoisation, effect error handling patterns.*
-
-### 3. Signal Integration
-
-Create a **TaskCardComponent** that demonstrates:
-
-- Input signals for receiving task data
-- Derived/computed signals for transformed display values (e.g., CSS class based on priority, formatted dates, overdue calculations)
-- Local UI state managed with signals (e.g., expansion state, edit mode)
-
-Additionally, demonstrate how you bridge NGRX store selectors with Angular signals for reactive component consumption.
-
-*We're looking for: Understanding of signal reactivity, proper separation between derived and local state, clean integration between NGRX and signals.*
-
-### 4. Dynamic Component Rendering
-
-Create a structural directive called `DynamicWidgetOutletDirective` that enables dynamic component rendering.
-
-**The directive should:**
-- Accept either a single component configuration or an array of configurations
-- Dynamically instantiate and render components
-- Pass inputs to rendered components (supporting static values, Observables, and Signals)
-- Subscribe to component outputs and forward events to provided handler functions
-- Properly manage component lifecycle (creation, input updates, destruction)
-- Handle cleanup of subscriptions and component references
-
-**Design a configuration interface** that describes:
-- Which component to render
-- What inputs to pass
-- What output handlers to attach
-
-Consider using TypeScript generics to provide type safety for the component inputs and outputs.
-
-*We're looking for: Understanding of Angular's ViewContainerRef, ComponentRef, proper subscription management, and lifecycle awareness.*
-
-### 5. Widget System
-
-Create a widget system for displaying task metadata with status indicators.
-
-**Design a WidgetStatus interface** that supports:
-- A value (consider using generics for type flexibility)
-- A status indicator (success, warning, error, neutral)
-- Optional icon reference
-- Optional tooltip text
-
-**Implement at least two widgets:**
-1. **TaskCountWidget** - Displays a count with appropriate status colouring
-2. **ProgressWidget** - Displays visual progress indication
-
-Demonstrate how widget state can be derived from store state using computed signals, reacting to changes in the underlying data.
-
-*We're looking for: Generic type usage, signal-based derived state, clean separation between data and presentation.*
+```bash
+npm test                 # Vitest unit tests (via ng test --watch=false)
+npm run e2e              # Playwright end-to-end tests
+npm run storybook        # Storybook component library at http://localhost:6006
+npm run build            # production build to dist/petello/browser/
+```
 
 ---
 
-## Architecture Considerations
+## Tech Stack
 
-We want to see evidence of:
-
-### A. Separation of Concerns
-- How you structure your feature module(s)
-- Separation between smart (container) and presentational (dumb) components
-- Service layer organization
-
-### B. Scalability Patterns
-- How would your architecture scale if we added:
-  - Multiple boards
-  - Real-time collaboration (WebSocket updates)
-  - Undo/redo functionality
-  - Offline support
-
-Please include a brief written section (README.md) addressing these scale considerations.
-
-### C. Type Safety
-- Proper TypeScript usage throughout
-- Generic types where appropriate
-- Discriminated unions for action types
-
-### D. Memory Management
-- Proper cleanup of subscriptions
-- Use of `takeUntilDestroyed`, `DestroyRef`, or similar patterns
-- Explain your approach to preventing memory leaks
+| Tool | Version | Role |
+|------|---------|------|
+| Angular | 21 | Application framework |
+| NGRX | 19 | State management (store + effects) |
+| Angular Material | 21 | UI component library |
+| Vitest (`@analogjs/vitest-angular`) | — | Unit testing |
+| Storybook | 10 | Component library / isolated dev |
+| Playwright | — | End-to-end testing |
+| OXfmt | beta | TypeScript/JS formatting |
+| Commitlint + Husky | — | Conventional Commits enforcement |
+| Vercel | — | SPA hosting |
+| GitHub Actions | — | CI pipeline (lint → test → build) |
 
 ---
 
-## Deliverables
+## Architecture Decisions
 
-1. **Source Code** - A working Angular application with the above features
-2. **README.md** - Including:
-   - Setup instructions
-   - Architecture decisions and rationale
-   - Scalability considerations (as mentioned above)
-   - Any tradeoffs you made given the time constraint
+These decisions were made deliberately and can each be defended in detail. The "why" matters more than the "what".
 
-3. **Store Structure** - Document your NGRX store file/folder organisation and explain your reasoning
+### 1. Angular 21 (not Angular 17 as per the exercise spec)
 
----
+The exercise specifies "Angular 17+". Angular 21 was chosen because it makes signals first-class — `input()`, `output()`, `model()`, and `signal()` are stable APIs rather than experimental. The new file naming convention (`app.ts` not `app.component.ts`) reflects Angular's direction. The intent of the spec is fully met; the version is higher, not lower.
 
-## Evaluation Criteria
+### 2. NGRX with EntityAdapter
 
-| Area | What We're Looking For |
-|------|------------------------|
-| State Management | Proper NGRX patterns, selector composition, effect handling |
-| Signals Usage | Correct signal patterns, computed signals, NGRX/Signal bridging |
-| Dynamic Rendering | Robust directive implementation, proper lifecycle handling |
-| Architecture | Scalable structure, separation of concerns, type safety |
-| Code Quality | Clean code, adhering to SOLID principles |
+NGRX's `@ngrx/entity` `EntityAdapter` provides normalised O(1) CRUD operations without hand-rolling immutable update logic. The entity map (`ids` + `entities`) is a flat dictionary — no nested array manipulation. `createFeature` automatically generates the feature selector and per-slice selectors, reducing boilerplate. DevTools support is a side effect: time-travel debugging works for free.
 
-As this is a limited time exercise we don't expect verbsoe documentation or unit tests, for that reason these are bonus point items, but we will expect the code itself to be clean and readable.
+See [docs/store-structure.md](docs/store-structure.md) for the full store layout.
 
----
+### 3. Optimistic `moveTask` with `previousColumnId` in the action payload
 
-## Bonus Points (Optional)
+`moveTask` carries both `columnId` (destination) and `previousColumnId` (origin) in its props. The reducer applies the optimistic update immediately when the action is dispatched — the UI responds at zero latency. If the effect's HTTP call fails, the rollback action restores `previousColumnId` without a selector call inside the effect. The rollback data travels with the action, not retrieved after the fact from store state. This eliminates a class of race conditions where the store might have changed between dispatch and effect completion.
 
-If you have additional time and want to demonstrate more skills:
+### 4. `concatMap` for mutation effects
 
-1. **Unit Tests** - Testing for selectors and effects
-2. **Component Tests** - Testing for the dynamic directive
-3. **Memoization Strategy** - Custom memoization for complex selectors
-4. **Action Hygiene** - Demonstrate command vs event action patterns
+`switchMap` cancels in-flight requests when a new action arrives. For task mutations (`moveTask`, `addTask`, `deleteTask`) that is wrong — cancelling a move mid-flight leaves the server and client in an inconsistent state. `concatMap` queues requests and processes them in order, guaranteeing no mutation is dropped. `catchError` is placed inside the `concatMap` inner pipe so a single failure does not terminate the effect stream.
 
----
+### 5. `signal()` over `model()` for local UI state
 
-## What NOT to Focus On
+`TaskCardComponent` has `isExpanded` and `isEditMode` as `signal<boolean>(false)`, not `model<boolean>(false)`. The distinction matters: `model()` creates a two-way-bindable signal — it signals to a parent that the value can flow upward via event emission. `isExpanded` and `isEditMode` are private expansion/edit state — no parent needs to read or write them. Using `model()` would be incorrect semantics, not just style.
 
-- **Styling/CSS** - Basic styling is fine, we're not assessing design skills
-- **Backend/API** - Mock the data, or use a public dummy data API, no need for a real backend implementation.
-- **Authentication** - Not required
-- **Complex UI** - Focus on architecture over polish
+### 6. `store.selectSignal()` bridge at smart component boundaries
 
----
+Smart components (`BoardPageComponent`) call `store.selectSignal(selector)` to produce Angular signals from NGRX selectors. These signals are passed into presentational components as plain `input()` values. Presentational components (`ColumnComponent`, `TaskCardComponent`) have zero store coupling — they receive signals, compute derived signals, and emit events. The bridge exists at exactly one layer.
 
-## Submission
+### 7. Smart / dumb component split
 
-- Provide a link to a GitHub repository (or zip file)
-- Ensure the project runs with `npm install && ng serve`
-- Include any environment setup instructions if needed
+`BoardPageComponent` holds all store wiring: dispatching actions, selecting signals, and passing data down via `input()`. `ColumnComponent` and `TaskCardComponent` are fully presentational — they can be rendered in Storybook without a store. This split is not architectural dogma; it reflects the practical benefit that leaf components become trivially testable and independently documented.
+
+### 8. `DynamicWidgetOutletDirective` with `untracked()` around `renderOne()`
+
+Angular 21 raises `NG0602` if `effect()` is created inside a reactive context (another `effect()` or `computed()`). The directive's config-change effect calls `renderOne()`, which itself may set up per-component effects. Wrapping `renderOne()` in `untracked()` exits the reactive context before any nested effect creation. This is the correct API surface — `untracked()` is explicitly provided for this use case. See [docs/dynamic-widget-outlet-directive.md](docs/dynamic-widget-outlet-directive.md) for full directive documentation.
+
+### 9. Vitest via `@analogjs/vitest-angular` — run via `ng test`, not bare `vitest run`
+
+`@analogjs/vitest-angular` provides the Angular compiler plugin that handles `templateUrl`, `styleUrl`, and path alias resolution (`@app/`). Running bare `npx vitest run` skips the plugin — templates are not compiled and `@app/` imports are not resolved. The correct command is `ng test --watch=false`, which invokes the Angular builder, which invokes Vitest with the plugin loaded.
+
+### 10. Storybook 10 (not Storybook 8)
+
+`@storybook/angular@8` has a peer dependency on Angular `<20`, making it incompatible with Angular 21. Storybook 10 supports Angular `<22`. Storybook runs via `ng run petello:build-storybook` (Angular builder) rather than the Storybook CLI directly, because `AngularLegacyBuildOptionsError` prevents direct CLI invocation. `@angular-devkit/build-angular@21` is installed alongside `@angular/build` as a Storybook peer requirement.
+
+### 11. `npm ci --legacy-peer-deps` everywhere
+
+Storybook 10's peer dependency tree conflicts with Angular 21's packages. Plain `npm ci` fails. `--legacy-peer-deps` restores npm v6 resolution behaviour, which tolerates the conflicts. This flag is required in GitHub Actions CI jobs, in the Vercel install command, and in local `npm install` if the lockfile is regenerated.
 
 ---
 
-## Questions?
+## Scalability Considerations
 
-If you have any questions about the requirements, please reach out before starting. We'd rather clarify upfront than have you make assumptions.
+The exercise brief asks explicitly how the architecture would scale across four scenarios. These are not theoretical — each answer reflects seams already present in the current implementation.
 
-Good luck! We look forward to reviewing your solution.
+### Multiple boards
+
+The `selectTasksByColumn` selector is a factory selector parameterised by `columnId`. The store slice has a flat task dictionary — extending it to multi-board requires adding a `boardId` key to each `Task` and a `loadTasks({ boardId })` dispatch from a board-selection route. The mock service's method signature already models this boundary (`getTasks(boardId: string)`). No reducer logic would change; only the loading action and selector factory gain an additional parameter.
+
+### Real-time collaboration (WebSocket updates)
+
+A WebSocket effect can push `moveTaskSuccess`, `addTaskSuccess`, and `deleteTaskSuccess` actions directly when another user mutates data. The reducer handles these actions already — the real-time path reuses exactly the same reducer cases as the HTTP path. The only new concern is conflict resolution: last-write-wins is trivial (accept the server push and overwrite); operational transform is a significant new concern but confined to the effect layer. No reducer changes are needed for basic real-time.
+
+### Undo/redo
+
+`moveTask` already carries `previousColumnId` — this was designed with undo in mind. A meta-reducer wrapping the existing state transitions could maintain an undo stack by recording the inverse action on each `moveTask` dispatch. NGRX's `MetaReducer` type is designed for exactly this pattern. The rollback logic already exists in the effect layer for server-failure recovery; undo reuses the same `moveTaskFailure` action with the `previousColumnId` already in the payload.
+
+### Offline support
+
+Optimistic updates are already in place — the UI never waits for the server response. Adding offline support requires two additions: a service worker (for asset caching) and an action queue that retries failed mutations on reconnect. The `shouldFail` / rollback seam used in Playwright testing (`?failNextMove=1`) demonstrates that the rollback path is exercised and reliable. An offline queue would sit at the same seam — intercepting failed effects and re-dispatching them when connectivity is restored.
+
+---
+
+## AI Usage Disclosure
+
+Claude (Anthropic) was used as the primary development tool via the **GSD (Get-Shit-Done)** structured planning framework.
+
+**What GSD produced:**
+- A 6-phase project roadmap from requirements analysis
+- Per-phase research documents investigating tool compatibility, API surfaces, and pitfalls before writing code
+- Task-level execution plans with explicit acceptance criteria and verification steps
+- Per-task atomic commits capturing each piece of work
+
+**What the candidate controlled:**
+- The phased approach and sequencing decisions (scaffolding before store, store before components, etc.)
+- All key architectural choices: Angular 21 over 17, NGRX EntityAdapter, `concatMap` vs `switchMap`, `signal()` vs `model()`, Storybook 10
+- Review and approval of every execution plan before it ran — each architectural decision in STATE.md was explicitly confirmed
+- The AI usage approach itself — choosing structured planning over ad-hoc generation
+
+**The distinction from "vibe coding":**
+
+Every line of implementation in this codebase can be walked through and explained. The structured planning approach means architectural decisions were made upfront and documented, not discovered by reading AI output after the fact. The GSD framework forces explicit decision points — the candidate cannot accidentally accept an architectural choice without approving it.
+
+This is the "AI as force multiplier" model the exercise brief endorses.
+
+See [docs/gsd-framework-notes.md](docs/gsd-framework-notes.md) for a detailed account of how GSD was used throughout this project.
+
+---
+
+## Conventional Commits
+
+All commits in this repository follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
+
+```
+type(scope): description
+
+feat(store): add moveTask optimistic update
+fix(effects): place catchError inside concatMap inner pipe
+chore(ci): add npm ci --legacy-peer-deps to all jobs
+docs(06-02): write project README
+```
+
+**Types used in this project:** `feat`, `fix`, `chore`, `docs`, `test`, `refactor`, `ci`, `style`, `build`
+
+**Enforcement:** `commitlint` (`commitlint.config.js` extends `@commitlint/config-conventional`) + Husky `commit-msg` hook. The hook sources nvm to ensure Node 23 is active for commitlint compatibility — without this, commitlint fails on machines where the system Node version is below the project's requirement.
+
+**Why this matters beyond style:**
+
+Conventional Commits produce machine-readable history. Tools like `semantic-release` can parse commit types to determine whether a release is a patch, minor, or major version bump. `standard-version` generates changelogs directly from commit messages. For a team codebase, conventional commits mean pull requests are self-documenting — the type prefix tells a reviewer whether to look for behaviour changes (`feat`, `fix`) or infrastructure changes (`chore`, `ci`) before opening the diff.
+
+---
+
+## Project Structure
+
+```
+src/app/
+  core/
+    models/          # Board, Column, Task interfaces; discriminated unions
+    services/        # TaskMockService (simulated network with latency + shouldFail seam)
+    store/
+      actions/       # task.actions.ts — command actions (loadTasks, moveTask, etc.)
+      effects/       # task.effects.ts — concatMap mutations, switchMap loads
+      reducers/      # task.reducer.ts — EntityAdapter CRUD + optimistic move
+      selectors/     # task.selectors.ts — factory selectors, derived metrics
+  features/
+    board/
+      board-page/    # Smart component — store wiring, signal bridge
+      column/        # Presentational — renders task list, dispatches via output()
+      task-card/     # Presentational — signals, computed display values, edit mode
+  shared/
+    directives/      # DynamicWidgetOutletDirective
+    widgets/
+      task-count-widget/   # WidgetStatus<number> — count with priority context
+      progress-widget/     # WidgetStatus<number> — completion rate progress bar
+      widget-bar/          # Composes widgets; feeds store signals into directive
+```
+
+See [docs/store-structure.md](docs/store-structure.md) for detailed store file layout and the rationale for each file's responsibility.
+
+---
+
+## Documentation
+
+Supplementary documentation lives in [docs/](docs/):
+
+| Document | Contents |
+|----------|----------|
+| [docs/store-structure.md](docs/store-structure.md) | NGRX store file organisation and reasoning |
+| [docs/data-flow-diagram.md](docs/data-flow-diagram.md) | ASCII data-flow: optimistic moveTask and pessimistic addTask |
+| [docs/dynamic-widget-outlet-directive.md](docs/dynamic-widget-outlet-directive.md) | DynamicWidgetOutletDirective API, lifecycle, and NG0602 solution |
+| [docs/signal-model-reasoning.md](docs/signal-model-reasoning.md) | `signal()` vs `model()` — when to use each |
+| [docs/accessibility-color-independence.md](docs/accessibility-color-independence.md) | WCAG 1.4.1 compliance — status indicators that don't rely on colour alone |
+| [docs/interview-talking-points.md](docs/interview-talking-points.md) | Prepared talking points for the technical interview walkthrough |
+| [docs/gsd-framework-notes.md](docs/gsd-framework-notes.md) | How the GSD planning framework was used throughout this project |
+| [EXERCISE.md](EXERCISE.md) | Original exercise brief (preserved verbatim) |
