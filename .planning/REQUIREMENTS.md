@@ -76,13 +76,13 @@
 
 - [x] **TOOL-01**: Conventional Commits format enforced via `commitlint` + `husky` pre-commit hook
 - [x] **TOOL-02**: OXfmt Beta configured for local on-save formatting (TypeScript/JS files)
-- [ ] **TOOL-03**: Vitest unit tests for all selectors (selectTasksByColumn, selectCountByPriority, selectCompletionRate)
-- [ ] **TOOL-04**: Vitest unit test for reducer (moveTask optimistic update + rollback)
-- [ ] **TOOL-05**: Vitest unit test for at least one effect (error handling path)
+- [x] **TOOL-03**: Vitest unit tests for all selectors (selectTasksByColumn, selectCountByPriority, selectCompletionRate)
+- [x] **TOOL-04**: Vitest unit test for reducer (moveTask optimistic update + rollback)
+- [x] **TOOL-05**: Vitest unit test for at least one effect (error handling path)
 - [x] **TOOL-06**: Storybook stories for `TaskCardComponent` (default, expanded, edit mode, overdue state)
 - [x] **TOOL-07**: Storybook stories for `TaskCountWidget` and `ProgressWidget`
 - [x] **TOOL-08**: Playwright E2E test covering create task → move task → verify column transition
-- [ ] **TOOL-09**: GitHub Actions CI pipeline: lint → test → build → deploy to Vercel
+- [x] **TOOL-09**: GitHub Actions CI pipeline: lint → test → build → deploy to Vercel
 - [x] **TOOL-10**: Axe accessibility linting integrated (Storybook a11y addon or pipeline step) — non-blocking (warn only)
 
 ### Documentation
@@ -175,13 +175,13 @@
 | WGT-03 | Phase 4: Dynamic Widget System | Complete |
 | WGT-04 | Phase 4: Dynamic Widget System | Complete |
 | WGT-05 | Phase 4: Dynamic Widget System | Complete |
-| TOOL-03 | Phase 5: Testing and Storybook | Pending |
-| TOOL-04 | Phase 5: Testing and Storybook | Pending |
-| TOOL-05 | Phase 5: Testing and Storybook | Pending |
+| TOOL-03 | Phase 5: Testing and Storybook | Complete |
+| TOOL-04 | Phase 5: Testing and Storybook | Complete |
+| TOOL-05 | Phase 5: Testing and Storybook | Complete |
 | TOOL-06 | Phase 5: Testing and Storybook | Complete |
 | TOOL-07 | Phase 5: Testing and Storybook | Complete |
 | TOOL-08 | Phase 5: Testing and Storybook | Complete |
-| TOOL-09 | Phase 5: Testing and Storybook | Pending |
+| TOOL-09 | Phase 5: Testing and Storybook | Complete |
 | TOOL-10 | Phase 5: Testing and Storybook | Complete |
 | DOC-01 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
 | DOC-02 | Phase 6: CI/CD, Deployment, and Documentation | Pending |

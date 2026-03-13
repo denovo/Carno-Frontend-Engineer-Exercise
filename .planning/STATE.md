@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: "Completed 05-02 Tasks 1-3; paused at Task 4 checkpoint:human-verify"
-last_updated: "2026-03-13T10:10:03.484Z"
+stopped_at: Completed 05-03-PLAN.md
+last_updated: "2026-03-13T13:11:04.763Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 17
-  completed_plans: 16
+  completed_plans: 17
   percent: 0
 ---
 
@@ -67,6 +67,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 04-dynamic-widget-system P03 | 10 | 3 tasks | 6 files |
 | Phase 05-testing-and-storybook P01 | 12 | 3 tasks | 8 files |
 | Phase 05-testing-and-storybook P02 | 33 | 3 tasks | 8 files |
+| Phase 05-testing-and-storybook P03 | 3 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -128,6 +129,8 @@ Recent decisions affecting current work:
 - [Phase 05-02]: Storybook 10 (not 8): @storybook/angular@8 requires Angular <20; v10 supports Angular <22 and works with Angular 21
 - [Phase 05-02]: Storybook Angular runs via ng run petello:build-storybook (AngularLegacyBuildOptionsError prevents direct storybook CLI)
 - [Phase 05-02]: @angular-devkit/build-angular@21 installed as Storybook peer dep alongside @angular/build
+- [Phase 05-testing-and-storybook]: CI uses npm run build-storybook (ng run petello:build-storybook) not npx storybook CLI — Storybook 10 requires Angular builder
+- [Phase 05-testing-and-storybook]: npm ci --legacy-peer-deps in CI jobs — Storybook 10 peer dep conflicts require this flag
 
 ### Pending Todos
 
@@ -140,6 +143,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13T10:10:03.473Z
-Stopped at: Completed 05-02 Tasks 1-3; paused at Task 4 checkpoint:human-verify
+Last session: 2026-03-13T13:11:04.759Z
+Stopped at: Completed 05-03-PLAN.md
 Resume file: None
