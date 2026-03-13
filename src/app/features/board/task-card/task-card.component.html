@@ -1,4 +1,5 @@
 <mat-card
+  [attr.data-testid]="'task-card-' + task().id"
   [class.pending]="isPending()"
   [class.overdue]="isOverdue()"
   [class]="priorityClass()"
@@ -33,7 +34,7 @@
       <!-- Move select: list available columns -->
       <mat-form-field>
         <mat-label>Move to column</mat-label>
-        <mat-select [value]="task().columnId" (selectionChange)="onMoveChange($event.value)">
+        <mat-select [attr.data-testid]="'move-select-' + task().id" [value]="task().columnId" (selectionChange)="onMoveChange($event.value)">
           @for (col of columns(); track col.id) {
             <mat-option [value]="col.id">{{ col.name }}</mat-option>
           }

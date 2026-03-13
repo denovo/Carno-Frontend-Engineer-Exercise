@@ -4,7 +4,7 @@
   <button mat-icon-button (click)="theme.toggle()" [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'">
     <mat-icon>{{ theme.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
   </button>
-  <button mat-raised-button (click)="onGlobalAddTask()">+ Add Task</button>
+  <button mat-raised-button data-testid="add-task-btn" (click)="onGlobalAddTask()">+ Add Task</button>
 </mat-toolbar>
 <app-widget-bar />
 

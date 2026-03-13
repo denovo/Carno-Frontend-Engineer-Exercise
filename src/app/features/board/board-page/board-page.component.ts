@@ -1,4 +1,5 @@
 import { Component, DestroyRef, inject, OnInit, signal, Signal } from "@angular/core";
+import { TaskMockService } from "@app/core/services/task-mock.service";
 import { CommonModule } from "@angular/common";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Store } from "@ngrx/store";
@@ -58,6 +59,7 @@ export class BoardPageComponent implements OnInit {
   private readonly dialog = inject(MatDialog);
   private readonly snackBar = inject(MatSnackBar);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly taskMockService = inject(TaskMockService);
 
   // SIG-07: NGRX → Angular Signal bridge via store.selectSignal()
   readonly loading = this.store.selectSignal(selectLoading);
@@ -103,6 +105,14 @@ export class BoardPageComponent implements OnInit {
           });
         }
       });
+
+    // E2E test seam: ?failNextMove=1 simulates server failure for rollback test.
+    // Sets shouldFail=true for one operation only; the rollback spec navigates fresh
+    // and performs exactly one move — ensuring the flag is consumed exactly once.
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("failNextMove") === "1") {
+      this.taskMockService.shouldFail = true;
+    }
   }
 
   // --- CRUD handlers — all dispatch calls live here (APP-08) ---
