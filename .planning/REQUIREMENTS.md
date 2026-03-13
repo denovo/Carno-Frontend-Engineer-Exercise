@@ -88,10 +88,10 @@
 ### Documentation
 
 - [x] **DOC-01**: `README.md` with setup instructions (`npm install && ng serve`)
-- [ ] **DOC-02**: README architecture decisions section with rationale for each key choice
-- [ ] **DOC-03**: README scalability considerations (multi-board, real-time, undo/redo, offline)
-- [ ] **DOC-04**: README AI usage disclosure (transparent, per exercise requirements)
-- [ ] **DOC-05**: README explanation of Conventional Commits and why they are valuable
+- [x] **DOC-02**: README architecture decisions section with rationale for each key choice
+- [x] **DOC-03**: README scalability considerations (multi-board, real-time, undo/redo, offline)
+- [x] **DOC-04**: README AI usage disclosure (transparent, per exercise requirements)
+- [x] **DOC-05**: README explanation of Conventional Commits and why they are valuable
 - [x] **DOC-06**: Store structure document (folder organisation + rationale)
 - [x] **DOC-07**: Interview talking points notes (separate file, structured by evaluation area)
 - [x] **DOC-08**: GSD framework notes — why it was a good choice for planning this exercise
@@ -184,10 +184,10 @@
 | TOOL-09 | Phase 5: Testing and Storybook | Complete |
 | TOOL-10 | Phase 5: Testing and Storybook | Complete |
 | DOC-01 | Phase 6: CI/CD, Deployment, and Documentation | Complete |
-| DOC-02 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
-| DOC-03 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
-| DOC-04 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
-| DOC-05 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
+| DOC-02 | Phase 6: CI/CD, Deployment, and Documentation | Complete |
+| DOC-03 | Phase 6: CI/CD, Deployment, and Documentation | Complete |
+| DOC-04 | Phase 6: CI/CD, Deployment, and Documentation | Complete |
+| DOC-05 | Phase 6: CI/CD, Deployment, and Documentation | Complete |
 | DOC-06 | Phase 6: CI/CD, Deployment, and Documentation | Complete |
 | DOC-07 | Phase 6: CI/CD, Deployment, and Documentation | Complete |
 | DOC-08 | Phase 6: CI/CD, Deployment, and Documentation | Complete |

@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 06-01-PLAN.md
-last_updated: "2026-03-13T15:03:23.355Z"
+stopped_at: Completed 06-02-PLAN.md
+last_updated: "2026-03-13T15:24:20.030Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
-  completed_phases: 5
+  completed_phases: 6
   total_plans: 20
-  completed_plans: 19
+  completed_plans: 20
   percent: 0
 ---
 
@@ -70,6 +70,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 05-testing-and-storybook P03 | 3 | 2 tasks | 3 files |
 | Phase 06-ci-cd-deployment-and-documentation P03 | 12 | 2 tasks | 4 files |
 | Phase 06 P01 | 5 | 2 tasks | 2 files |
+| Phase 06-ci-cd-deployment-and-documentation P02 | 10 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -138,6 +139,8 @@ Recent decisions affecting current work:
 - [Phase 06]: vercel.json contains only rewrites rule — build command and output directory set in Vercel dashboard to avoid free-tier conflicts
 - [Phase 06]: Vercel Install Command: npm ci --legacy-peer-deps — Storybook 10 peer dep conflicts with Angular 21 require this flag
 - [Phase 06]: Vercel Output Directory: dist/petello/browser — Angular 17+ outputs to /browser subdirectory for SSR split
+- [Phase 06-ci-cd-deployment-and-documentation]: README.md Architecture Decisions documents 11 substantive why-rationales sourced from STATE.md accumulated context
+- [Phase 06-ci-cd-deployment-and-documentation]: AI Usage Disclosure names GSD framework explicitly and distinguishes structured planning from vibe coding
 
 ### Pending Todos
 
@@ -150,6 +153,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13T15:01:20.685Z
-Stopped at: Completed 06-01-PLAN.md
+Last session: 2026-03-13T15:24:20.025Z
+Stopped at: Completed 06-02-PLAN.md
 Resume file: None
