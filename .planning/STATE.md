@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 5 context gathered
-last_updated: "2026-03-13T08:22:17.593Z"
+stopped_at: Completed 05-testing-and-storybook 05-01-PLAN.md
+last_updated: "2026-03-13T09:54:14.444Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
   completed_phases: 4
-  total_plans: 14
-  completed_plans: 14
+  total_plans: 17
+  completed_plans: 15
   percent: 0
 ---
 
@@ -65,6 +65,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 04-dynamic-widget-system P01 | 15 | 2 tasks | 4 files |
 | Phase 04-dynamic-widget-system P02 | 5 | 2 tasks | 8 files |
 | Phase 04-dynamic-widget-system P03 | 10 | 3 tasks | 6 files |
+| Phase 05-testing-and-storybook P01 | 12 | 3 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -120,6 +121,9 @@ Recent decisions affecting current work:
 - [Phase 04-03]: widgetConfigs is a plain readonly array (not a signal) — component set is static, only signal input values update via DynamicWidgetOutletDirective effects
 - [Phase 04-03]: selectCompletionRate(DONE_COLUMN_ID) factory called once at field init — not inside computed() — prevents selector recreation defeating memoization
 - [Phase 04-03]: BoardPageComponent has zero widget internals — imports WidgetBarComponent and renders <app-widget-bar /> only
+- [Phase 05-01]: playwright.config.ts uses process.env.CI to branch webServer: ng serve locally vs npx serve dist/ in CI
+- [Phase 05-01]: ?failNextMove=1 seam sets TaskMockService.shouldFail = true directly — no DI override needed, service is providedIn root
+- [Phase 05-01]: shouldFail is NOT auto-reset — rollback spec navigates fresh and moves exactly one task to ensure flag consumed once
 
 ### Pending Todos
 
@@ -132,6 +136,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13T08:22:17.582Z
-Stopped at: Phase 5 context gathered
-Resume file: .planning/phases/05-testing-and-storybook/05-CONTEXT.md
+Last session: 2026-03-13T09:54:14.435Z
+Stopped at: Completed 05-testing-and-storybook 05-01-PLAN.md
+Resume file: None

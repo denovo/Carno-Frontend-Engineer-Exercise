@@ -81,7 +81,7 @@
 - [ ] **TOOL-05**: Vitest unit test for at least one effect (error handling path)
 - [ ] **TOOL-06**: Storybook stories for `TaskCardComponent` (default, expanded, edit mode, overdue state)
 - [ ] **TOOL-07**: Storybook stories for `TaskCountWidget` and `ProgressWidget`
-- [ ] **TOOL-08**: Playwright E2E test covering create task → move task → verify column transition
+- [x] **TOOL-08**: Playwright E2E test covering create task → move task → verify column transition
 - [ ] **TOOL-09**: GitHub Actions CI pipeline: lint → test → build → deploy to Vercel
 - [ ] **TOOL-10**: Axe accessibility linting integrated (Storybook a11y addon or pipeline step) — non-blocking (warn only)
 
@@ -180,7 +180,7 @@
 | TOOL-05 | Phase 5: Testing and Storybook | Pending |
 | TOOL-06 | Phase 5: Testing and Storybook | Pending |
 | TOOL-07 | Phase 5: Testing and Storybook | Pending |
-| TOOL-08 | Phase 5: Testing and Storybook | Pending |
+| TOOL-08 | Phase 5: Testing and Storybook | Complete |
 | TOOL-09 | Phase 5: Testing and Storybook | Pending |
 | TOOL-10 | Phase 5: Testing and Storybook | Pending |
 | DOC-01 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
