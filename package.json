@@ -35,6 +35,11 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
+  "overrides": {
+    "@angular-devkit/build-angular": {
+      "ora": "^5.4.1"
+    }
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "^21.2.2",
     "@angular/build": "^21.2.1",
@@ -52,6 +57,7 @@
     "prettier": "^3.8.1",
     "storybook": "^10.2.17",
     "typescript": "~5.9.2",
+    "serve": "^14.2.6",
     "vitest": "^4.0.8"
   }
 }
