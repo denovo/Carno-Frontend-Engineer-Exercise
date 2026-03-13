@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 06-03-PLAN.md
-last_updated: "2026-03-13T14:00:06.618Z"
+stopped_at: Completed 06-01-PLAN.md
+last_updated: "2026-03-13T15:03:23.355Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
   completed_phases: 5
   total_plans: 20
-  completed_plans: 18
+  completed_plans: 19
   percent: 0
 ---
 
@@ -69,6 +69,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 05-testing-and-storybook P02 | 33 | 3 tasks | 8 files |
 | Phase 05-testing-and-storybook P03 | 3 | 2 tasks | 3 files |
 | Phase 06-ci-cd-deployment-and-documentation P03 | 12 | 2 tasks | 4 files |
+| Phase 06 P01 | 5 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -134,6 +135,9 @@ Recent decisions affecting current work:
 - [Phase 05-testing-and-storybook]: npm ci --legacy-peer-deps in CI jobs — Storybook 10 peer dep conflicts require this flag
 - [Phase 06]: data-flow-diagram uses newColumnId (matches actual action prop) not columnId from draft
 - [Phase 06]: addTask contrast diagram added to data-flow-diagram.md to show pessimistic vs optimistic pattern
+- [Phase 06]: vercel.json contains only rewrites rule — build command and output directory set in Vercel dashboard to avoid free-tier conflicts
+- [Phase 06]: Vercel Install Command: npm ci --legacy-peer-deps — Storybook 10 peer dep conflicts with Angular 21 require this flag
+- [Phase 06]: Vercel Output Directory: dist/petello/browser — Angular 17+ outputs to /browser subdirectory for SSR split
 
 ### Pending Todos
 
@@ -146,6 +150,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13T14:00:06.612Z
-Stopped at: Completed 06-03-PLAN.md
+Last session: 2026-03-13T15:01:20.685Z
+Stopped at: Completed 06-01-PLAN.md
 Resume file: None

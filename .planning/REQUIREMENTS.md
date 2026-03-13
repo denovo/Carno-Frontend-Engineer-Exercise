@@ -87,7 +87,7 @@
 
 ### Documentation
 
-- [ ] **DOC-01**: `README.md` with setup instructions (`npm install && ng serve`)
+- [x] **DOC-01**: `README.md` with setup instructions (`npm install && ng serve`)
 - [ ] **DOC-02**: README architecture decisions section with rationale for each key choice
 - [ ] **DOC-03**: README scalability considerations (multi-board, real-time, undo/redo, offline)
 - [ ] **DOC-04**: README AI usage disclosure (transparent, per exercise requirements)
@@ -183,7 +183,7 @@
 | TOOL-08 | Phase 5: Testing and Storybook | Complete |
 | TOOL-09 | Phase 5: Testing and Storybook | Complete |
 | TOOL-10 | Phase 5: Testing and Storybook | Complete |
-| DOC-01 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
+| DOC-01 | Phase 6: CI/CD, Deployment, and Documentation | Complete |
 | DOC-02 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
 | DOC-03 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
 | DOC-04 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
