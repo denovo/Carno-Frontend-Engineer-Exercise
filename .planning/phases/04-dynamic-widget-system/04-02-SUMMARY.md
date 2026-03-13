@@ -110,3 +110,17 @@ None - no external service configuration required.
 ---
 *Phase: 04-dynamic-widget-system*
 *Completed: 2026-03-12*
+
+## Self-Check: PASSED
+
+- FOUND: src/app/features/board/task-count-widget/task-count-widget.component.ts
+- FOUND: src/app/features/board/task-count-widget/task-count-widget.component.html
+- FOUND: src/app/features/board/task-count-widget/task-count-widget.component.scss
+- FOUND: src/app/features/board/task-count-widget/task-count-widget.component.spec.ts
+- FOUND: src/app/features/board/progress-widget/progress-widget.component.ts
+- FOUND: src/app/features/board/progress-widget/progress-widget.component.html
+- FOUND: src/app/features/board/progress-widget/progress-widget.component.scss
+- FOUND: src/app/features/board/progress-widget/progress-widget.component.spec.ts
+- FOUND: .planning/phases/04-dynamic-widget-system/04-02-SUMMARY.md
+- FOUND: commit 2cd9a8a (Task 1 - TaskCountWidgetComponent)
+- FOUND: commit 5005e63 (Task 2 - ProgressWidgetComponent)
