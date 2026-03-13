@@ -80,7 +80,10 @@
             "browserTarget": "petello:build",
             "tsConfig": "tsconfig.storybook.json",
             "compodoc": false,
-            "port": 6006
+            "port": 6006,
+            "styles": [
+              "src/styles.scss"
+            ]
           }
         },
         "build-storybook": {
@@ -90,7 +93,10 @@
             "browserTarget": "petello:build",
             "tsConfig": "tsconfig.storybook.json",
             "compodoc": false,
-            "outputDir": "storybook-static"
+            "outputDir": "storybook-static",
+            "styles": [
+              "src/styles.scss"
+            ]
           }
         }
       }
