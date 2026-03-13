@@ -7,6 +7,10 @@
 
 html {
   height: 100%;
+  // Declare color-scheme support in CSS so light-dark() values in the
+  // Material theme custom properties can always resolve. ThemeService
+  // overrides this on <body> at runtime to honour the user's system preference.
+  color-scheme: light dark;
   @include mat.theme(
     (
       color: (
