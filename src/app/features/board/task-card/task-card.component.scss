@@ -3,6 +3,10 @@
   margin-bottom: 8px;
 }
 
+mat-card-title {
+  font-size: 0.875rem !important;
+}
+
 mat-card {
   transition: opacity 0.2s ease;
 
@@ -24,6 +28,12 @@ mat-card-header {
     display: flex;
     align-items: center;
     gap: 4px;
+
+    mat-chip {
+      font-size: 0.7rem;
+      min-height: 20px;
+      padding: 0 8px;
+    }
   }
 }
 
@@ -41,7 +51,7 @@ mat-card-header {
   flex-direction: column;
   gap: 2px;
   margin-bottom: 8px;
-  color: rgba(0, 0, 0, 0.54);
+  color: var(--mat-sys-on-surface-variant);
 }
 
 mat-form-field {
@@ -49,7 +59,7 @@ mat-form-field {
 }
 
 .edit-mode-note {
-  color: rgba(0, 0, 0, 0.54);
+  color: var(--mat-sys-on-surface-variant);
   font-size: 0.85em;
 }
 

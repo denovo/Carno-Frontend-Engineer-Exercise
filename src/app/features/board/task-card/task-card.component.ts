@@ -1,4 +1,4 @@
-import { Component, computed, input, output, signal } from "@angular/core";
+import { Component, computed, input, model, output, signal } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
@@ -41,10 +41,15 @@ export class TaskCardComponent {
   edit = output<Task>();
   delete = output<Task>();
 
-  // SIG-05: Local UI state — signal() not model()
-  // model() would enable parent two-way binding; signal() is correct here since
-  // no parent binds to these states programmatically
-  isExpanded = signal(false);
+  // SIG-06: model() for expand state — two-way bindable input/output pair.
+  // A parent can bind [(isExpanded)]="someVar" to programmatically expand/collapse
+  // cards (e.g. an "expand all" toolbar action). model() is the right primitive
+  // when the state is legitimately owned by both the component and its parent.
+  isExpanded = model(false);
+
+  // SIG-05: signal() for edit mode — purely internal UI state.
+  // No parent ever needs to set or observe isEditMode, so model() would expose
+  // a bindable API surface with no consumer. signal() is correct here.
   isEditMode = signal(false);
 
   // SIG-02: Priority CSS class — lowercased enum value ("LOW" → "priority-low")
