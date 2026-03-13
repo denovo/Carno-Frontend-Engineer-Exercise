@@ -10,7 +10,9 @@
     "test:watch": "ng test",
     "format": "oxfmt src/**/*.{ts,html}",
     "format:check": "oxfmt --check src/**/*.{ts,html}",
-    "prepare": "husky"
+    "prepare": "husky",
+    "e2e": "playwright test",
+    "e2e:report": "playwright show-report"
   },
   "private": true,
   "packageManager": "npm@10.9.0",
@@ -36,10 +38,16 @@
     "@angular/compiler-cli": "^21.2.0",
     "@commitlint/cli": "^20.4.3",
     "@commitlint/config-conventional": "^20.4.3",
+    "@playwright/test": "^1.58.2",
+    "@storybook/addon-a11y": "^8.6.18",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/angular": "^8.6.18",
+    "@storybook/test": "^8.6.18",
     "husky": "^9.1.7",
     "jsdom": "^28.0.0",
     "oxfmt": "^0.38.0",
     "prettier": "^3.8.1",
+    "storybook": "^8.6.18",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
   }
