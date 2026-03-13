@@ -118,11 +118,12 @@ Plans:
   3. README contains setup instructions, architecture decisions with rationale, scalability considerations, AI usage disclosure, and Conventional Commits explanation
   4. Store structure document explains folder organisation and rationale
   5. Interview talking points, GSD framework notes, and a data flow diagram are present as separate documentation files
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 06-01: TBD
-- [ ] 06-02: TBD
+- [ ] 06-01-PLAN.md — vercel.json SPA rewrite rule + Vercel project setup + public URL (DOC-01)
+- [ ] 06-02-PLAN.md — Archive exercise brief as EXERCISE.md + write project README.md (DOC-01, DOC-02, DOC-03, DOC-04, DOC-05)
+- [ ] 06-03-PLAN.md — Supplementary docs: store-structure, interview-talking-points, gsd-framework-notes, data-flow-diagram (DOC-06, DOC-07, DOC-08, DOC-09)
 
 ## Progress
 
@@ -136,4 +137,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 3. Component Layer | 2/3 | In Progress|  |
 | 4. Dynamic Widget System | 3/3 | Complete   | 2026-03-13 |
 | 5. Testing and Storybook | 0/3 | Not started | - |
-| 6. CI/CD, Deployment, and Documentation | 0/? | Not started | - |
+| 6. CI/CD, Deployment, and Documentation | 0/3 | Not started | - |
