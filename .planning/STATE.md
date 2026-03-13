@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 05-testing-and-storybook 05-01-PLAN.md
-last_updated: "2026-03-13T09:54:14.444Z"
+stopped_at: "Completed 05-02 Tasks 1-3; paused at Task 4 checkpoint:human-verify"
+last_updated: "2026-03-13T10:10:03.484Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
   completed_phases: 4
   total_plans: 17
-  completed_plans: 15
+  completed_plans: 16
   percent: 0
 ---
 
@@ -66,6 +66,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 04-dynamic-widget-system P02 | 5 | 2 tasks | 8 files |
 | Phase 04-dynamic-widget-system P03 | 10 | 3 tasks | 6 files |
 | Phase 05-testing-and-storybook P01 | 12 | 3 tasks | 8 files |
+| Phase 05-testing-and-storybook P02 | 33 | 3 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -124,6 +125,9 @@ Recent decisions affecting current work:
 - [Phase 05-01]: playwright.config.ts uses process.env.CI to branch webServer: ng serve locally vs npx serve dist/ in CI
 - [Phase 05-01]: ?failNextMove=1 seam sets TaskMockService.shouldFail = true directly — no DI override needed, service is providedIn root
 - [Phase 05-01]: shouldFail is NOT auto-reset — rollback spec navigates fresh and moves exactly one task to ensure flag consumed once
+- [Phase 05-02]: Storybook 10 (not 8): @storybook/angular@8 requires Angular <20; v10 supports Angular <22 and works with Angular 21
+- [Phase 05-02]: Storybook Angular runs via ng run petello:build-storybook (AngularLegacyBuildOptionsError prevents direct storybook CLI)
+- [Phase 05-02]: @angular-devkit/build-angular@21 installed as Storybook peer dep alongside @angular/build
 
 ### Pending Todos
 
@@ -136,6 +140,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13T09:54:14.435Z
-Stopped at: Completed 05-testing-and-storybook 05-01-PLAN.md
+Last session: 2026-03-13T10:10:03.473Z
+Stopped at: Completed 05-02 Tasks 1-3; paused at Task 4 checkpoint:human-verify
 Resume file: None
