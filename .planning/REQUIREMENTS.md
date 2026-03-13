@@ -92,10 +92,10 @@
 - [ ] **DOC-03**: README scalability considerations (multi-board, real-time, undo/redo, offline)
 - [ ] **DOC-04**: README AI usage disclosure (transparent, per exercise requirements)
 - [ ] **DOC-05**: README explanation of Conventional Commits and why they are valuable
-- [ ] **DOC-06**: Store structure document (folder organisation + rationale)
-- [ ] **DOC-07**: Interview talking points notes (separate file, structured by evaluation area)
-- [ ] **DOC-08**: GSD framework notes — why it was a good choice for planning this exercise
-- [ ] **DOC-09**: Data flow diagram for task column transition (Mermaid or ASCII — shows action → reducer → effect → component chain)
+- [x] **DOC-06**: Store structure document (folder organisation + rationale)
+- [x] **DOC-07**: Interview talking points notes (separate file, structured by evaluation area)
+- [x] **DOC-08**: GSD framework notes — why it was a good choice for planning this exercise
+- [x] **DOC-09**: Data flow diagram for task column transition (Mermaid or ASCII — shows action → reducer → effect → component chain)
 
 ## v2 Requirements
 
@@ -188,10 +188,10 @@
 | DOC-03 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
 | DOC-04 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
 | DOC-05 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
-| DOC-06 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
-| DOC-07 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
-| DOC-08 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
-| DOC-09 | Phase 6: CI/CD, Deployment, and Documentation | Pending |
+| DOC-06 | Phase 6: CI/CD, Deployment, and Documentation | Complete |
+| DOC-07 | Phase 6: CI/CD, Deployment, and Documentation | Complete |
+| DOC-08 | Phase 6: CI/CD, Deployment, and Documentation | Complete |
+| DOC-09 | Phase 6: CI/CD, Deployment, and Documentation | Complete |
 
 **Coverage:**
 - v1 requirements: 68 total
