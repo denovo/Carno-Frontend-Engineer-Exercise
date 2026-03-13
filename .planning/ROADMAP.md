@@ -101,11 +101,12 @@ Plans:
   3. Storybook renders stories for TaskCountWidget and ProgressWidget
   4. Playwright E2E test creates a task, moves it to another column, and verifies the column transition
   5. Axe a11y checks run in Storybook (non-blocking warnings)
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
+- [ ] 05-01-PLAN.md — Playwright install, playwright.config.ts, data-testid attributes, ?failNextMove=1 seam, E2E specs (TOOL-08)
+- [ ] 05-02-PLAN.md — Storybook 8 install, .storybook config, TaskCard stories (4), widget stories (6), a11y addon (TOOL-06, TOOL-07, TOOL-10)
+- [ ] 05-03-PLAN.md — GitHub Actions CI workflow + unit test smoke check (TOOL-03, TOOL-04, TOOL-05, TOOL-09)
 
 ### Phase 6: CI/CD, Deployment, and Documentation
 **Goal**: The application is deployed, the CI pipeline validates every push, and all documentation is complete for the interviewer to review
@@ -134,5 +135,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 2. NGRX Store | 6/6 | Complete   | 2026-03-11 |
 | 3. Component Layer | 2/3 | In Progress|  |
 | 4. Dynamic Widget System | 3/3 | Complete   | 2026-03-13 |
-| 5. Testing and Storybook | 0/? | Not started | - |
+| 5. Testing and Storybook | 0/3 | Not started | - |
 | 6. CI/CD, Deployment, and Documentation | 0/? | Not started | - |
