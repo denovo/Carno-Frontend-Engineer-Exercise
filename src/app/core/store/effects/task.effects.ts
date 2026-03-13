@@ -32,6 +32,24 @@ export class TaskEffects {
     )
   );
 
+  addTask$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TaskActions.addTask),
+      concatMap(({ task }) =>
+        this.taskService.addTask(task).pipe(
+          map((newTask) => TaskActions.addTaskSuccess({ task: newTask })),
+          catchError((err: unknown) =>
+            of(
+              TaskActions.addTaskFailure({
+                error: err instanceof Error ? err.message : "Add failed",
+              })
+            )
+          )
+        )
+      )
+    )
+  );
+
   moveTask$ = createEffect(() =>
     this.actions$.pipe(
       ofType(TaskActions.moveTask),
@@ -44,6 +62,42 @@ export class TaskEffects {
                 taskId,
                 previousColumnId,
                 error: err instanceof Error ? err.message : "Move failed",
+              })
+            )
+          )
+        )
+      )
+    )
+  );
+
+  updateTask$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TaskActions.updateTask),
+      concatMap(({ update }) =>
+        this.taskService.updateTask(update).pipe(
+          map(() => TaskActions.updateTaskSuccess({ update })),
+          catchError((err: unknown) =>
+            of(
+              TaskActions.updateTaskFailure({
+                error: err instanceof Error ? err.message : "Update failed",
+              })
+            )
+          )
+        )
+      )
+    )
+  );
+
+  removeTask$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TaskActions.removeTask),
+      concatMap(({ taskId }) =>
+        this.taskService.removeTask(taskId).pipe(
+          map(() => TaskActions.removeTaskSuccess({ taskId })),
+          catchError((err: unknown) =>
+            of(
+              TaskActions.removeTaskFailure({
+                error: err instanceof Error ? err.message : "Remove failed",
               })
             )
           )
