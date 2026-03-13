@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 04-dynamic-widget-system-04-02-PLAN.md
-last_updated: "2026-03-12T20:04:12.101Z"
+stopped_at: Completed 04-dynamic-widget-system-04-03-PLAN.md
+last_updated: "2026-03-13T00:39:36.482Z"
 last_activity: 2026-03-11 -- Roadmap created
 progress:
   total_phases: 6
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 14
-  completed_plans: 13
+  completed_plans: 14
   percent: 0
 ---
 
@@ -64,6 +64,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03 P03 | 45 | 3 tasks | 6 files |
 | Phase 04-dynamic-widget-system P01 | 15 | 2 tasks | 4 files |
 | Phase 04-dynamic-widget-system P02 | 5 | 2 tasks | 8 files |
+| Phase 04-dynamic-widget-system P03 | 10 | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -116,6 +117,9 @@ Recent decisions affecting current work:
 - [Phase 04-dynamic-widget-system]: Attribute directive template uses plain attribute (appDynamicWidgetOutlet) not property binding ([appDynamicWidgetOutlet])
 - [Phase 04-dynamic-widget-system]: ng test --watch=false (full suite) required for templateUrl/styleUrl components — --include flag breaks
 - [Phase 04-dynamic-widget-system]: provideAnimationsAsync() required in TestBed for MatProgressBar component tests
+- [Phase 04-03]: widgetConfigs is a plain readonly array (not a signal) — component set is static, only signal input values update via DynamicWidgetOutletDirective effects
+- [Phase 04-03]: selectCompletionRate(DONE_COLUMN_ID) factory called once at field init — not inside computed() — prevents selector recreation defeating memoization
+- [Phase 04-03]: BoardPageComponent has zero widget internals — imports WidgetBarComponent and renders <app-widget-bar /> only
 
 ### Pending Todos
 
@@ -128,6 +132,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-12T20:04:12.096Z
-Stopped at: Completed 04-dynamic-widget-system-04-02-PLAN.md
+Last session: 2026-03-13T00:39:36.428Z
+Stopped at: Completed 04-dynamic-widget-system-04-03-PLAN.md
 Resume file: None
