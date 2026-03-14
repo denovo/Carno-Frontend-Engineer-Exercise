@@ -1,8 +1,10 @@
 // Actions
 export * from "./actions/task.actions";
+export * from "./actions/board.actions";
 
-// Reducer — state shape, adapter, and feature selectors
+// Reducers — state shape, adapters, and feature selectors
 export * from "./reducers/task.reducer";
+export * from "./reducers/board.reducer";
 
 // Derived selectors
 export * from "./selectors/task.selectors";

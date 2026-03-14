@@ -1,6 +1,7 @@
 import { Action, ActionReducer } from "@ngrx/store";
 import { Task } from "@app/shared/models";
 import { tasksFeatureKey } from "./task.reducer";
+import { boardFeatureKey, BoardState } from "./board.reducer";
 
 const STORAGE_KEY = "petello-state";
 
@@ -11,6 +12,7 @@ interface PersistedState {
     loading: boolean;
     error: string | null;
   };
+  [boardFeatureKey]?: BoardState;
 }
 
 function reviveDates(entities: Record<string, Task>): Record<string, Task> {

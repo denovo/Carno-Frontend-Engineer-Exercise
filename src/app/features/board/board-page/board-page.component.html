@@ -1,5 +1,20 @@
 <mat-toolbar color="primary" class="board-toolbar">
-  <span class="toolbar-title">Petello</span>
+  @if (isEditingBoardName()) {
+    <input
+      #boardNameInput
+      class="board-name-input"
+      [value]="editBoardNameValue()"
+      (input)="editBoardNameValue.set($any($event.target).value)"
+      (blur)="saveEditBoardName()"
+      (keydown.enter)="saveEditBoardName()"
+      (keydown.escape)="isEditingBoardName.set(false)"
+      aria-label="Board name"
+    />
+  } @else {
+    <span class="toolbar-title" (click)="startEditBoardName()" title="Click to rename board" role="button" tabindex="0" (keydown.enter)="startEditBoardName()">
+      {{ boardName() }}
+    </span>
+  }
   <span class="toolbar-spacer"></span>
   <button mat-icon-button (click)="theme.toggle()" [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'">
     <mat-icon>{{ theme.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
@@ -13,17 +28,44 @@
 }
 
 <div class="board-columns" cdkDropListGroup>
-  @for (col of columns; track col.id) {
+  @for (col of columns(); track col.id) {
     <app-column
       [column]="col"
-      [tasks]="tasksByColumn[col.id]()"
-      [allColumns]="columns"
+      [tasks]="getTasksForColumn(col.id)()"
+      [allColumns]="columns()"
       [pendingTaskIds]="getPendingTaskIds()"
       (addTask)="onAddTask($event)"
       (moveTask)="onMoveTask($event)"
       (reorderTask)="onReorderTask($event)"
       (editTask)="onEditTask($event)"
       (deleteTask)="onDeleteTask($event)"
+      (renameColumn)="onRenameColumn(col.id, $event)"
+      (deleteColumn)="onDeleteColumn(col.id)"
     />
+  }
+
+  @if (isAddingColumn()) {
+    <div class="add-column-card">
+      <input
+        #newColInput
+        class="new-column-input"
+        placeholder="Column name"
+        [value]="newColumnName()"
+        (input)="newColumnName.set($any($event.target).value)"
+        (keydown.enter)="saveNewColumn()"
+        (keydown.escape)="cancelAddColumn()"
+        aria-label="New column name"
+      />
+      <div class="add-column-actions">
+        <button mat-flat-button (click)="saveNewColumn()">Add</button>
+        <button mat-icon-button (click)="cancelAddColumn()" aria-label="Cancel">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+  } @else {
+    <button class="add-column-btn" mat-stroked-button (click)="startAddColumn()">
+      <mat-icon>add</mat-icon> Add Column
+    </button>
   }
 </div>

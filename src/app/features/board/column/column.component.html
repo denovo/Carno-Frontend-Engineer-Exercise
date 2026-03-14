@@ -1,7 +1,25 @@
 <div [attr.data-testid]="'column-' + column().id">
   <div class="column-header">
-    <h3>{{ column().name }}</h3>
+    @if (isEditingName()) {
+      <input
+        #nameInput
+        class="column-name-input"
+        [value]="editNameValue()"
+        (input)="editNameValue.set($any($event.target).value)"
+        (blur)="saveEditName()"
+        (keydown.enter)="saveEditName()"
+        (keydown.escape)="cancelEditName()"
+        aria-label="Column name"
+      />
+    } @else {
+      <h3 (click)="startEditName()" title="Click to rename" role="button" tabindex="0" (keydown.enter)="startEditName()">
+        {{ column().name }}
+      </h3>
+    }
     <span class="task-count">{{ tasks().length }}</span>
+    <button mat-icon-button class="delete-column-btn" (click)="deleteColumn.emit()" aria-label="Delete column">
+      <mat-icon>delete_outline</mat-icon>
+    </button>
   </div>
 
   <mat-divider />

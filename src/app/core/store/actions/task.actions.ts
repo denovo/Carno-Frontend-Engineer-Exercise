@@ -77,3 +77,9 @@ export const removeTaskFailure = createAction(
   "[Task API] Remove Task Failure",
   props<{ error: string }>()
 );
+
+// --- Clear all tasks in a column (used when deleting a column) ---
+export const clearColumnTasks = createAction(
+  "[Board Page] Clear Column Tasks",
+  props<{ columnId: string }>()
+);

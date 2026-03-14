@@ -1,4 +1,14 @@
-import { Component, DestroyRef, inject, OnInit, signal, Signal } from "@angular/core";
+import {
+  Component,
+  DestroyRef,
+  ElementRef,
+  ViewChild,
+  effect,
+  inject,
+  OnInit,
+  signal,
+  Signal,
+} from "@angular/core";
 import { TaskMockService } from "@app/core/services/task-mock.service";
 import { CommonModule } from "@angular/common";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
@@ -23,13 +33,16 @@ import {
   reorderTask,
   updateTask,
   removeTask,
+  clearColumnTasks,
   selectLoading,
   selectTasksByColumn,
   selectAllTasks,
+  BoardActions,
+  selectBoardName,
+  selectColumns,
 } from "@app/core/store";
-import { MOCK_COLUMNS } from "@app/core/services/mock-data";
 import { ThemeService } from "@app/core/services/theme.service";
-import { Task } from "@app/shared/models";
+import { Column, Task } from "@app/shared/models";
 
 import { ColumnComponent } from "../column/column.component";
 import {
@@ -68,23 +81,48 @@ export class BoardPageComponent implements OnInit {
 
   // SIG-07: NGRX → Angular Signal bridge via store.selectSignal()
   readonly loading = this.store.selectSignal(selectLoading);
+  readonly columns = this.store.selectSignal(selectColumns);
+  readonly boardName = this.store.selectSignal(selectBoardName);
 
-  // Available columns (from mock seed — static for Phase 3)
-  readonly columns = MOCK_COLUMNS;
+  // Per-column task signals — cached by column ID to avoid recreating on each render
+  private readonly colSignalCache = new Map<string, Signal<Task[]>>();
 
-  // SIG-07: Per-column task signals — created once at class init, not in template
-  // Anti-pattern avoided: factory selector NOT called inside template expressions
-  readonly tasksByColumn: Record<string, Signal<Task[]>> = Object.fromEntries(
-    MOCK_COLUMNS.map((col) => [
-      col.id,
-      this.store.selectSignal(selectTasksByColumn(col.id)),
-    ])
-  );
+  getTasksForColumn(columnId: string): Signal<Task[]> {
+    if (!this.colSignalCache.has(columnId)) {
+      this.colSignalCache.set(
+        columnId,
+        this.store.selectSignal(selectTasksByColumn(columnId))
+      );
+    }
+    return this.colSignalCache.get(columnId)!;
+  }
 
   // Local signal for pending task IDs (optimistic move feedback)
   private readonly pendingTaskIds = signal<Set<string>>(new Set());
-
   readonly getPendingTaskIds = () => this.pendingTaskIds();
+
+  // Board name inline editing
+  readonly isEditingBoardName = signal(false);
+  readonly editBoardNameValue = signal("");
+  @ViewChild("boardNameInput") private boardNameInputEl?: ElementRef<HTMLInputElement>;
+
+  // Add column inline form
+  readonly isAddingColumn = signal(false);
+  readonly newColumnName = signal("");
+  @ViewChild("newColInput") private newColInputEl?: ElementRef<HTMLInputElement>;
+
+  constructor() {
+    effect(() => {
+      if (this.isEditingBoardName()) {
+        setTimeout(() => this.boardNameInputEl?.nativeElement.focus(), 0);
+      }
+    });
+    effect(() => {
+      if (this.isAddingColumn()) {
+        setTimeout(() => this.newColInputEl?.nativeElement.focus(), 0);
+      }
+    });
+  }
 
   ngOnInit(): void {
     // Skip mock load if localStorage already hydrated the store with persisted tasks
@@ -115,12 +153,64 @@ export class BoardPageComponent implements OnInit {
       });
 
     // E2E test seam: ?failNextMove=1 simulates server failure for rollback test.
-    // Sets shouldFail=true for one operation only; the rollback spec navigates fresh
-    // and performs exactly one move — ensuring the flag is consumed exactly once.
     const params = new URLSearchParams(window.location.search);
     if (params.get("failNextMove") === "1") {
       this.taskMockService.shouldFail = true;
     }
+  }
+
+  // --- Board management ---
+
+  startEditBoardName(): void {
+    this.editBoardNameValue.set(this.boardName());
+    this.isEditingBoardName.set(true);
+  }
+
+  saveEditBoardName(): void {
+    const name = this.editBoardNameValue().trim();
+    if (name && name !== this.boardName()) {
+      this.store.dispatch(BoardActions.updateBoardName({ name }));
+    }
+    this.isEditingBoardName.set(false);
+  }
+
+  startAddColumn(): void {
+    this.newColumnName.set("");
+    this.isAddingColumn.set(true);
+  }
+
+  cancelAddColumn(): void {
+    this.isAddingColumn.set(false);
+  }
+
+  saveNewColumn(): void {
+    const name = this.newColumnName().trim();
+    if (name) {
+      const column: Column = {
+        id: `col-${crypto.randomUUID()}`,
+        name,
+        order: this.columns().length,
+      };
+      this.store.dispatch(BoardActions.addColumn({ column }));
+    }
+    this.isAddingColumn.set(false);
+  }
+
+  onRenameColumn(columnId: string, name: string): void {
+    this.store.dispatch(BoardActions.renameColumn({ id: columnId, name }));
+  }
+
+  onDeleteColumn(columnId: string): void {
+    const ref = this.dialog.open<ConfirmDialogComponent, void, boolean>(
+      ConfirmDialogComponent,
+      { width: "360px" }
+    );
+    ref.afterClosed().subscribe((confirmed) => {
+      if (confirmed === true) {
+        this.store.dispatch(clearColumnTasks({ columnId }));
+        this.store.dispatch(BoardActions.removeColumn({ id: columnId }));
+      }
+    });
   }
 
   // --- CRUD handlers — all dispatch calls live here (APP-08) ---
@@ -132,7 +222,7 @@ export class BoardPageComponent implements OnInit {
         width: "480px",
         data: {
           defaultColumnId: columnId,
-          columns: this.columns,
+          columns: this.columns(),
           showColumnSelector,
         },
       }
@@ -177,7 +267,7 @@ export class BoardPageComponent implements OnInit {
         data: {
           task,
           defaultColumnId: task.columnId,
-          columns: this.columns,
+          columns: this.columns(),
           showColumnSelector: false,
         },
       }
@@ -211,7 +301,9 @@ export class BoardPageComponent implements OnInit {
   }
 
   onGlobalAddTask(): void {
-    // Opens form with column selector — defaults to first column
-    this.onAddTask(this.columns[0].id, true);
+    const cols = this.columns();
+    if (cols.length > 0) {
+      this.onAddTask(cols[0].id, true);
+    }
   }
 }

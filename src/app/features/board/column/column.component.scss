@@ -27,6 +27,55 @@
     text-overflow: ellipsis;
     text-transform: uppercase;
     color: var(--mat-sys-on-surface);
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin-left: -4px;
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: var(--mat-sys-surface-container-highest);
+    }
+  }
+
+  .column-name-input {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    background: var(--mat-sys-surface-container-highest);
+    border: 1px solid var(--mat-sys-primary);
+    border-radius: 4px;
+    color: var(--mat-sys-on-surface);
+    padding: 2px 6px;
+    outline: none;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .delete-column-btn {
+    --mdc-icon-button-state-layer-size: 28px !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    flex-shrink: 0;
+
+    mat-icon {
+      font-size: 16px !important;
+      width: 16px !important;
+      height: 16px !important;
+      line-height: 16px !important;
+    }
+  }
+
+  &:hover .delete-column-btn {
+    opacity: 1;
   }
 
   .task-count {

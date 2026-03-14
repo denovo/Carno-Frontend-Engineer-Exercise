@@ -100,7 +100,16 @@ export const tasksFeature = createFeature({
     on(TaskActions.removeTaskFailure, (state, { error }) => ({
       ...state,
       error,
-    }))
+    })),
+
+    on(TaskActions.clearColumnTasks, (state, { columnId }) => {
+      const idsToRemove = taskAdapter
+        .getSelectors()
+        .selectAll(state)
+        .filter((t) => t.columnId === columnId)
+        .map((t) => t.id);
+      return taskAdapter.removeMany(idsToRemove, state);
+    })
   ),
 });
 
