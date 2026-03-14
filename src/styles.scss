@@ -21,8 +21,20 @@
   --priority-critical-color: #dc2626;
 }
 
+// ─── Mobile tokens ─────────────────────────────────────────────────────────────
+@media (max-width: 599px) {
+  :root {
+    --board-padding: 10px;
+    --column-gap: 10px;
+    // Near-full-width columns on mobile — users swipe to reveal next column
+    --column-min-width: min(88vw, 340px);
+    --column-max-width: min(88vw, 340px);
+  }
+}
+
 html {
   height: 100%;
+  overflow: hidden;
   color-scheme: light dark;
   @include mat.theme(
     (
@@ -44,6 +56,7 @@ body {
   line-height: 1.5;
   margin: 0;
   height: 100%;
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -107,6 +120,26 @@ h1, h2, h3, h4, h5, h6 {
 // While dragging, don't show grab cursor on non-dragged cards
 .cdk-drop-list-dragging app-task-card:not(.cdk-drag-placeholder) {
   cursor: grabbing;
+}
+
+// ─── Touch devices ────────────────────────────────────────────────────────────
+// Hide grab/grabbing cursors on touch-primary devices
+@media (hover: none) and (pointer: coarse) {
+  .cdk-drag { cursor: default !important; }
+  app-task-card { cursor: default !important; }
+}
+
+// ─── Responsive dialogs ───────────────────────────────────────────────────────
+@media (max-width: 599px) {
+  .mat-mdc-dialog-container {
+    --mdc-dialog-container-shape: 12px;
+  }
+
+  // Ensure dialogs don't overflow the viewport on small screens
+  .cdk-overlay-pane {
+    max-width: calc(100vw - 24px) !important;
+    width: calc(100vw - 24px) !important;
+  }
 }
 
 // ─── Add Column Dialog ────────────────────────────────────────────────────────

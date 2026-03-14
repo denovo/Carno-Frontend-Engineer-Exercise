@@ -1,7 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
 .board-toolbar {
   position: sticky;
   top: 0;
   z-index: 100;
+  flex-shrink: 0;
   font-family: var(--font-ui) !important;
 
   .toolbar-title {
@@ -14,6 +23,11 @@
     padding: 2px 6px;
     margin-left: -6px;
     transition: background 0.15s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    max-width: clamp(120px, 40vw, 360px);
 
     &:hover {
       background: rgba(255, 255, 255, 0.12);
@@ -31,23 +45,31 @@
     color: inherit;
     padding: 2px 8px;
     outline: none;
-    min-width: 180px;
+    min-width: 0;
+    width: clamp(120px, 40vw, 280px);
 
     &:focus {
       background: rgba(255, 255, 255, 0.22);
       border-color: rgba(255, 255, 255, 0.7);
     }
   }
+
+  // Shrink "+Add" label on very small screens
+  @media (max-width: 399px) {
+    .add-btn-label { display: none; }
+  }
 }
 
 .toolbar-spacer {
   flex: 1;
+  min-width: 8px;
 }
 
 .loading-bar {
   position: sticky;
   top: 64px;
   z-index: 10;
+  flex-shrink: 0;
 }
 
 .board-columns {
@@ -56,8 +78,23 @@
   gap: var(--column-gap, 14px);
   padding: var(--board-padding, 24px);
   overflow-x: auto;
+  overflow-y: auto;
   flex: 1;
+  min-height: 0;
   align-items: flex-start;
+
+  // Smooth momentum scrolling on iOS
+  -webkit-overflow-scrolling: touch;
+
+  // Scroll snap — columns snap into view on swipe (most useful on mobile)
+  scroll-snap-type: x mandatory;
+  scroll-padding: var(--board-padding, 24px);
+
+  // Snap each direct child (column + any extras)
+  > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
 
   scrollbar-width: thin;
   scrollbar-color: var(--mat-sys-outline-variant) transparent;

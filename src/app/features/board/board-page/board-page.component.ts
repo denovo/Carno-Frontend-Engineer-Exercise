@@ -172,10 +172,14 @@ export class BoardPageComponent implements OnInit {
     this.isEditingBoardName.set(false);
   }
 
+  private dialogWidth(preferred = "480px"): string {
+    return window.innerWidth < 600 ? `calc(100vw - 24px)` : preferred;
+  }
+
   openAddColumnDialog(): void {
     this.newColumnName.set("");
     this.dialog
-      .open(this.addColumnDialogRef, { width: "320px" })
+      .open(this.addColumnDialogRef, { width: this.dialogWidth("320px") })
       .afterClosed()
       .subscribe((confirmed: boolean) => {
         if (confirmed) this.saveNewColumn();
@@ -201,7 +205,7 @@ export class BoardPageComponent implements OnInit {
   onDeleteColumn(columnId: string): void {
     const ref = this.dialog.open<ConfirmDialogComponent, void, boolean>(
       ConfirmDialogComponent,
-      { width: "360px" }
+      { width: this.dialogWidth("360px") }
     );
     ref.afterClosed().subscribe((confirmed) => {
       if (confirmed === true) {
@@ -217,7 +221,7 @@ export class BoardPageComponent implements OnInit {
     const ref = this.dialog.open<TaskFormComponent, TaskFormData, TaskFormResult>(
       TaskFormComponent,
       {
-        width: "480px",
+        width: this.dialogWidth(),
         data: {
           defaultColumnId: columnId,
           columns: this.columns(),
@@ -261,7 +265,7 @@ export class BoardPageComponent implements OnInit {
     const ref = this.dialog.open<TaskFormComponent, TaskFormData, TaskFormResult>(
       TaskFormComponent,
       {
-        width: "480px",
+        width: this.dialogWidth(),
         data: {
           task,
           defaultColumnId: task.columnId,
@@ -289,7 +293,7 @@ export class BoardPageComponent implements OnInit {
   onDeleteTask(task: Task): void {
     const ref = this.dialog.open<ConfirmDialogComponent, void, boolean>(
       ConfirmDialogComponent,
-      { width: "360px" }
+      { width: this.dialogWidth("360px") }
     );
     ref.afterClosed().subscribe((confirmed) => {
       if (confirmed === true) {

@@ -6,6 +6,9 @@
   background: var(--mat-sys-surface-container);
   border-radius: var(--radius-lg, 14px);
   padding: 16px;
+  flex-shrink: 0;
+  // Scroll snap alignment — columns snap into position on swipe
+  scroll-snap-align: start;
 }
 
 .column-header {

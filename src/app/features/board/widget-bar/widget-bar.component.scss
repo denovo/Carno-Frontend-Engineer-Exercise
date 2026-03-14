@@ -1,15 +1,22 @@
 :host {
   display: block;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .widget-bar {
   display: flex;
   align-items: center;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 8px 12px;
   padding: 8px 24px;
   background: var(--mat-sys-surface-container-low);
   border-bottom: 1px solid var(--mat-sys-outline-variant);
   font-family: var(--font-ui);
   min-height: 40px;
+
+  @media (max-width: 599px) {
+    padding: 6px 12px;
+    gap: 6px 10px;
+  }
 }

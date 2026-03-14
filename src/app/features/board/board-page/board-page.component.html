@@ -20,7 +20,7 @@
     <mat-icon>{{ theme.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
   </button>
   <button mat-raised-button [matMenuTriggerFor]="addMenu" data-testid="add-task-btn">
-    + Add <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>
+    + <span class="add-btn-label">Add </span><mat-icon iconPositionEnd>arrow_drop_down</mat-icon>
   </button>
 </mat-toolbar>
 
