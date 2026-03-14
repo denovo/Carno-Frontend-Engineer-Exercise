@@ -19,13 +19,16 @@
   <button mat-icon-button (click)="theme.toggle()" [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'">
     <mat-icon>{{ theme.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
   </button>
-  <button mat-icon-button [matMenuTriggerFor]="settingsMenu" aria-label="Board settings">
-    <mat-icon>tune</mat-icon>
+  <button mat-raised-button [matMenuTriggerFor]="addMenu" data-testid="add-task-btn">
+    + Add <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>
   </button>
-  <button mat-raised-button data-testid="add-task-btn" (click)="onGlobalAddTask()">+ Add Task</button>
 </mat-toolbar>
 
-<mat-menu #settingsMenu>
+<mat-menu #addMenu>
+  <button mat-menu-item (click)="onGlobalAddTask()">
+    <mat-icon>add_task</mat-icon>
+    Add task
+  </button>
   <button mat-menu-item (click)="openAddColumnDialog()">
     <mat-icon>view_column</mat-icon>
     Add column
