@@ -6,12 +6,19 @@
 
   <mat-divider />
 
-  <div class="task-list">
+  <div
+    class="task-list"
+    cdkDropList
+    [cdkDropListData]="column().id"
+    (cdkDropListDropped)="onDropped($event)"
+  >
     @if (tasks().length === 0) {
       <p class="empty-state">No tasks yet</p>
     }
     @for (task of tasks(); track task.id) {
       <app-task-card
+        cdkDrag
+        [cdkDragData]="task"
         [task]="task"
         [isPending]="pendingTaskIds().has(task.id)"
         [columns]="allColumns()"

@@ -11,6 +11,7 @@ import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatDialog } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Update } from "@ngrx/entity";
+import { CdkDropListGroup } from "@angular/cdk/drag-drop";
 
 import {
   loadTasks,
@@ -47,6 +48,7 @@ import { WidgetBarComponent } from "../widget-bar/widget-bar.component";
     MatButtonModule,
     MatIconModule,
     MatProgressBarModule,
+    CdkDropListGroup,
     ColumnComponent,
     WidgetBarComponent,
   ],

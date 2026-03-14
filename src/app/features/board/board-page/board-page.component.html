@@ -12,7 +12,7 @@
   <mat-progress-bar mode="indeterminate" class="loading-bar" />
 }
 
-<div class="board-columns">
+<div class="board-columns" cdkDropListGroup>
   @for (col of columns; track col.id) {
     <app-column
       [column]="col"

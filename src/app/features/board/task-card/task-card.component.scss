@@ -1,5 +1,10 @@
 :host {
   display: block;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
 }
 
 // ─── Card Base ────────────────────────────────────────────────────────────────
@@ -90,8 +95,14 @@ mat-card-title {
   }
 
   button[mat-icon-button] {
+    // Use the MDC size token so the button's internal flex layout centres the icon
+    --mdc-icon-button-state-layer-size: 28px !important;
     width: 28px !important;
     height: 28px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
 
     mat-icon {
       font-size: 16px !important;
