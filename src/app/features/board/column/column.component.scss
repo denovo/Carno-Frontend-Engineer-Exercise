@@ -7,8 +7,41 @@
   border-radius: var(--radius-lg, 14px);
   padding: 16px;
   flex-shrink: 0;
+  position: relative;
   // Scroll snap alignment — columns snap into position on swipe
   scroll-snap-align: start;
+}
+
+// Delete button floats above the column on hover — absolutely positioned, no layout impact
+.delete-column-btn {
+  --mdc-icon-button-state-layer-size: 28px !important;
+  width: 28px !important;
+  height: 28px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  position: absolute;
+  top: -10px;
+  right: 8px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  background: var(--mat-sys-surface-container-high);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+  mat-icon {
+    font-size: 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+    line-height: 16px !important;
+  }
+}
+
+:host:hover .delete-column-btn {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .column-header {
@@ -55,30 +88,6 @@
     outline: none;
     flex: 1;
     min-width: 0;
-  }
-
-  .delete-column-btn {
-    --mdc-icon-button-state-layer-size: 28px !important;
-    width: 28px !important;
-    height: 28px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 !important;
-    opacity: 0;
-    transition: opacity 0.15s ease;
-    flex-shrink: 0;
-
-    mat-icon {
-      font-size: 16px !important;
-      width: 16px !important;
-      height: 16px !important;
-      line-height: 16px !important;
-    }
-  }
-
-  &:hover .delete-column-btn {
-    opacity: 1;
   }
 
   .task-count {

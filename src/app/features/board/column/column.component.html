@@ -1,4 +1,9 @@
 <div [attr.data-testid]="'column-' + column().id">
+  <!-- Delete button floats above the column on hover — absolutely positioned, no layout impact -->
+  <button mat-icon-button class="delete-column-btn" (click)="deleteColumn.emit()" aria-label="Delete column">
+    <mat-icon>delete_outline</mat-icon>
+  </button>
+
   <div class="column-header">
     @if (isEditingName()) {
       <input
@@ -17,9 +22,6 @@
       </h3>
     }
     <span class="task-count">{{ tasks().length }}</span>
-    <button mat-icon-button class="delete-column-btn" (click)="deleteColumn.emit()" aria-label="Delete column">
-      <mat-icon>delete_outline</mat-icon>
-    </button>
   </div>
 
   <mat-divider />
