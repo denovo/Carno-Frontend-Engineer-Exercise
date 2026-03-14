@@ -11,6 +11,7 @@
   line-height: 1;
 }
 
+// Status indicator — communicates state via BOTH color AND text symbol (WCAG 1.4.1)
 .status-indicator {
   display: inline-flex;
   align-items: center;
@@ -19,12 +20,38 @@
   height: 16px;
   border-radius: 4px;
   flex-shrink: 0;
+  font-size: 0.6rem;
+  font-weight: 800;
+  line-height: 1;
 }
 
-.status-neutral  { background: color-mix(in srgb, #9e9e9e 15%, transparent); color: #757575; }
-.status-warning  { background: color-mix(in srgb, #ffa000 15%, transparent); color: #e65100; }
-.status-error    { background: color-mix(in srgb, #d32f2f 15%, transparent); color: #c62828; }
-.status-success  { background: color-mix(in srgb, #388e3c 15%, transparent); color: #2e7d32; }
+// Neutral: grey bg + em-dash (nothing notable)
+.status-neutral {
+  background: color-mix(in srgb, #9e9e9e 15%, transparent);
+  color: #757575;
+  &::after { content: '–'; }
+}
+
+// Warning: amber bg + exclamation
+.status-warning {
+  background: color-mix(in srgb, #ffa000 15%, transparent);
+  color: #e65100;
+  &::after { content: '!'; }
+}
+
+// Error: red bg + cross
+.status-error {
+  background: color-mix(in srgb, #d32f2f 15%, transparent);
+  color: #c62828;
+  &::after { content: '✕'; }
+}
+
+// Success: green bg + checkmark
+.status-success {
+  background: color-mix(in srgb, #388e3c 15%, transparent);
+  color: #2e7d32;
+  &::after { content: '✓'; }
+}
 
 .widget-label {
   color: var(--mat-sys-on-surface-variant);
