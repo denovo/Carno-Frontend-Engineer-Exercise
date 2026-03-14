@@ -21,6 +21,7 @@ const baseTask = {
   columnId: "col-todo",
   priority: Priority.Medium,
   assignee: "alice",
+  order: 0,
   createdAt: new Date(),
   updatedAt: new Date(),
 };

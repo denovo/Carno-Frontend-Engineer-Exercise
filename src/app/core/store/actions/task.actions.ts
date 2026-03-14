@@ -19,7 +19,7 @@ export const loadTasksFailure = createAction(
 // --- Add Task (NGR-02) ---
 export const addTask = createAction(
   "[Task Form] Add Task",
-  props<{ task: Omit<Task, "id" | "createdAt" | "updatedAt"> }>()
+  props<{ task: Omit<Task, "id" | "order" | "createdAt" | "updatedAt"> }>()
 );
 export const addTaskSuccess = createAction(
   "[Task API] Add Task Success",
@@ -56,6 +56,12 @@ export const updateTaskSuccess = createAction(
 export const updateTaskFailure = createAction(
   "[Task API] Update Task Failure",
   props<{ error: string }>()
+);
+
+// --- Reorder Task within a column (NGR-11) ---
+export const reorderTask = createAction(
+  "[Task Card] Reorder Task",
+  props<{ columnId: string; fromIndex: number; toIndex: number }>()
 );
 
 // --- Remove Task (NGR-05) ---

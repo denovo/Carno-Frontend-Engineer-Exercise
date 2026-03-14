@@ -11,6 +11,7 @@ function makeTasks(count: number): Task[] {
     title: `Task ${i}`,
     columnId: "col-todo",
     priority: Priority.Low,
+    order: i,
     createdAt: new Date(),
     updatedAt: new Date(),
   }));

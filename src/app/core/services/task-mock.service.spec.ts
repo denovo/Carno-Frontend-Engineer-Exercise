@@ -33,7 +33,7 @@ describe("TaskMockService", () => {
   });
 
   it("addTask returns task with auto-generated id and matching title", async () => {
-    const partial: Omit<Task, "id" | "createdAt" | "updatedAt"> = {
+    const partial: Omit<Task, "id" | "order" | "createdAt" | "updatedAt"> = {
       title: "New test task",
       columnId: "col-todo",
       priority: Priority.Medium,

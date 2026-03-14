@@ -7,6 +7,8 @@ export interface Task {
   columnId: string;
   priority: Priority;
   assignee?: string;
+  /** Position within the column. Lower values appear first. */
+  order: number;
   /** Creation timestamp. Used with OVERDUE_THRESHOLD_DAYS for age-based overdue detection. */
   createdAt: Date;
   updatedAt: Date;

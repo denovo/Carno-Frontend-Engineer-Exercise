@@ -3,9 +3,9 @@ import { selectTasksByColumn, selectCountByPriority, selectCompletionRate } from
 import { Priority, Task } from "@app/shared/models";
 
 const tasks: Task[] = [
-  { id: "1", title: "T1", columnId: "col-todo", priority: Priority.High, createdAt: new Date(), updatedAt: new Date() },
-  { id: "2", title: "T2", columnId: "col-todo", priority: Priority.Medium, createdAt: new Date(), updatedAt: new Date() },
-  { id: "3", title: "T3", columnId: "col-done", priority: Priority.High, createdAt: new Date(), updatedAt: new Date() },
+  { id: "1", title: "T1", columnId: "col-todo", priority: Priority.High, order: 0, createdAt: new Date(), updatedAt: new Date() },
+  { id: "2", title: "T2", columnId: "col-todo", priority: Priority.Medium, order: 1, createdAt: new Date(), updatedAt: new Date() },
+  { id: "3", title: "T3", columnId: "col-done", priority: Priority.High, order: 0, createdAt: new Date(), updatedAt: new Date() },
 ];
 
 describe("selectTasksByColumn", () => {

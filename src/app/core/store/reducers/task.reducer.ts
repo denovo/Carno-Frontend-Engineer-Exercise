@@ -10,8 +10,7 @@ export interface TaskState extends EntityState<Task> {
 
 export const taskAdapter: EntityAdapter<Task> = createEntityAdapter<Task>({
   selectId: (task: Task) => task.id,
-  sortComparer: (a: Task, b: Task) =>
-    a.createdAt.getTime() - b.createdAt.getTime(),
+  sortComparer: (a: Task, b: Task) => a.order - b.order,
 });
 
 export const initialState: TaskState = taskAdapter.getInitialState({
@@ -75,6 +74,24 @@ export const tasksFeature = createFeature({
       ...state,
       error,
     })),
+
+    on(TaskActions.reorderTask, (state, { columnId, fromIndex, toIndex }) => {
+      if (fromIndex === toIndex) return state;
+      const columnTasks = taskAdapter
+        .getSelectors()
+        .selectAll(state)
+        .filter((t) => t.columnId === columnId);
+      if (fromIndex < 0 || toIndex < 0 || fromIndex >= columnTasks.length || toIndex >= columnTasks.length) {
+        return state;
+      }
+      const reordered = [...columnTasks];
+      const [moved] = reordered.splice(fromIndex, 1);
+      reordered.splice(toIndex, 0, moved);
+      return taskAdapter.updateMany(
+        reordered.map((task, index) => ({ id: task.id, changes: { order: index } })),
+        state
+      );
+    }),
 
     on(TaskActions.removeTaskSuccess, (state, { taskId }) =>
       taskAdapter.removeOne(taskId, state)

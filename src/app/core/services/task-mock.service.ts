@@ -31,7 +31,7 @@ export class TaskMockService {
     return of(undefined as void).pipe(delay(this.latencyMs));
   }
 
-  addTask(task: Omit<Task, "id" | "createdAt" | "updatedAt">): Observable<Task> {
+  addTask(task: Omit<Task, "id" | "order" | "createdAt" | "updatedAt">): Observable<Task> {
     if (this.shouldFail) {
       return throwError(() => new Error("addTask failed")).pipe(
         delay(this.latencyMs)
@@ -41,6 +41,7 @@ export class TaskMockService {
     const newTask: Task = {
       ...task,
       id: crypto.randomUUID(),
+      order: Date.now(),
       createdAt: now,
       updatedAt: now,
     };

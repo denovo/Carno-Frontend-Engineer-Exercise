@@ -11,6 +11,7 @@ const mockTask: Task = {
   title: "Test Task",
   columnId: "col-todo",
   priority: Priority.Medium,
+  order: 0,
   createdAt: new Date("2026-01-01"),
   updatedAt: new Date("2026-01-01"),
 };
@@ -105,6 +106,34 @@ describe("tasksReducer", () => {
     expect(state.entities["task-1"]?.title).toBe("Updated Title");
     // columnId unchanged
     expect(state.entities["task-1"]?.columnId).toBe("col-todo");
+  });
+
+  describe("reorderTask", () => {
+    const makeTaskInCol = (id: string, order: number): Task => ({
+      ...mockTask, id, order,
+    });
+
+    it("reorders tasks within the column", () => {
+      const t0 = makeTaskInCol("t0", 0);
+      const t1 = makeTaskInCol("t1", 1);
+      const t2 = makeTaskInCol("t2", 2);
+      const state = taskAdapter.addMany([t0, t1, t2], initialState);
+      const next = reducer(state, TaskActions.reorderTask({ columnId: "col-todo", fromIndex: 0, toIndex: 2 }));
+      const all = taskAdapter.getSelectors().selectAll(next);
+      expect(all.map((t) => t.id)).toEqual(["t1", "t2", "t0"]);
+    });
+
+    it("is a no-op when fromIndex === toIndex", () => {
+      const state = taskAdapter.addOne(mockTask, initialState);
+      const next = reducer(state, TaskActions.reorderTask({ columnId: "col-todo", fromIndex: 0, toIndex: 0 }));
+      expect(next).toBe(state);
+    });
+
+    it("is a no-op when index is out of bounds", () => {
+      const state = taskAdapter.addOne(mockTask, initialState);
+      const next = reducer(state, TaskActions.reorderTask({ columnId: "col-todo", fromIndex: 0, toIndex: 5 }));
+      expect(next).toBe(state);
+    });
   });
 
   it("removeTaskSuccess should remove task from state", () => {

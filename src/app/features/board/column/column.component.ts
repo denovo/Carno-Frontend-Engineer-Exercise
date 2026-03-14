@@ -7,6 +7,12 @@ import { CdkDrag, CdkDropList, CdkDragDrop } from "@angular/cdk/drag-drop";
 import { Task, Column } from "@app/shared/models";
 import { TaskCardComponent, MoveEvent } from "../task-card/task-card.component";
 
+export interface ReorderEvent {
+  columnId: string;
+  fromIndex: number;
+  toIndex: number;
+}
+
 @Component({
   selector: "app-column",
   standalone: true,
@@ -30,6 +36,7 @@ export class ColumnComponent {
 
   addTask = output<string>();
   moveTask = output<MoveEvent>();
+  reorderTask = output<ReorderEvent>();
   editTask = output<Task>();
   deleteTask = output<Task>();
 
@@ -37,13 +44,21 @@ export class ColumnComponent {
 
   onDropped(event: CdkDragDrop<string>): void {
     this.isDragOver.set(false);
-    if (event.previousContainer === event.container) return;
-
-    const task = event.item.data as Task;
-    this.moveTask.emit({
-      taskId: task.id,
-      previousColumnId: event.previousContainer.data,
-      newColumnId: event.container.data,
-    });
+    if (event.previousContainer === event.container) {
+      if (event.previousIndex !== event.currentIndex) {
+        this.reorderTask.emit({
+          columnId: this.column().id,
+          fromIndex: event.previousIndex,
+          toIndex: event.currentIndex,
+        });
+      }
+    } else {
+      const task = event.item.data as Task;
+      this.moveTask.emit({
+        taskId: task.id,
+        previousColumnId: event.previousContainer.data,
+        newColumnId: event.container.data,
+      });
+    }
   }
 }

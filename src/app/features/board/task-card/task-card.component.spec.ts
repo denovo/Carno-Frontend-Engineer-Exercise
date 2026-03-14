@@ -13,6 +13,7 @@ function makeTask(overrides: Partial<Task> = {}): Task {
     columnId: "col-todo",
     priority: Priority.Medium,
     assignee: "Alice",
+    order: 0,
     createdAt: now,
     updatedAt: now,
     ...overrides,

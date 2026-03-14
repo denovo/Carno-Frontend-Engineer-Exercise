@@ -12,6 +12,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Update } from "@ngrx/entity";
 import { CdkDropListGroup } from "@angular/cdk/drag-drop";
+import { ReorderEvent } from "../column/column.component";
 
 import {
   loadTasks,
@@ -19,6 +20,7 @@ import {
   moveTask,
   moveTaskSuccess,
   moveTaskFailure,
+  reorderTask,
   updateTask,
   removeTask,
   selectLoading,
@@ -150,6 +152,10 @@ export class BoardPageComponent implements OnInit {
         );
       }
     });
+  }
+
+  onReorderTask(event: ReorderEvent): void {
+    this.store.dispatch(reorderTask(event));
   }
 
   onMoveTask(event: MoveEvent): void {
