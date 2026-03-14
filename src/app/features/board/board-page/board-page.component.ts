@@ -2,6 +2,7 @@ import {
   Component,
   DestroyRef,
   ElementRef,
+  TemplateRef,
   ViewChild,
   effect,
   inject,
@@ -17,8 +18,9 @@ import { Actions, ofType } from "@ngrx/effects";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatDialogModule, MatDialog } from "@angular/material/dialog";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
-import { MatDialog } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Update } from "@ngrx/entity";
 import { CdkDropListGroup } from "@angular/cdk/drag-drop";
@@ -62,6 +64,8 @@ import { WidgetBarComponent } from "../widget-bar/widget-bar.component";
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatMenuModule,
+    MatDialogModule,
     MatProgressBarModule,
     CdkDropListGroup,
     ColumnComponent,
@@ -106,20 +110,14 @@ export class BoardPageComponent implements OnInit {
   readonly editBoardNameValue = signal("");
   @ViewChild("boardNameInput") private boardNameInputEl?: ElementRef<HTMLInputElement>;
 
-  // Add column inline form
-  readonly isAddingColumn = signal(false);
+  // Add column dialog
   readonly newColumnName = signal("");
-  @ViewChild("newColInput") private newColInputEl?: ElementRef<HTMLInputElement>;
+  @ViewChild("addColumnDialog") private addColumnDialogRef!: TemplateRef<unknown>;
 
   constructor() {
     effect(() => {
       if (this.isEditingBoardName()) {
         setTimeout(() => this.boardNameInputEl?.nativeElement.focus(), 0);
-      }
-    });
-    effect(() => {
-      if (this.isAddingColumn()) {
-        setTimeout(() => this.newColInputEl?.nativeElement.focus(), 0);
       }
     });
   }
@@ -174,13 +172,14 @@ export class BoardPageComponent implements OnInit {
     this.isEditingBoardName.set(false);
   }
 
-  startAddColumn(): void {
+  openAddColumnDialog(): void {
     this.newColumnName.set("");
-    this.isAddingColumn.set(true);
-  }
-
-  cancelAddColumn(): void {
-    this.isAddingColumn.set(false);
+    this.dialog
+      .open(this.addColumnDialogRef, { width: "320px" })
+      .afterClosed()
+      .subscribe((confirmed: boolean) => {
+        if (confirmed) this.saveNewColumn();
+      });
   }
 
   saveNewColumn(): void {
@@ -193,7 +192,6 @@ export class BoardPageComponent implements OnInit {
       };
       this.store.dispatch(BoardActions.addColumn({ column }));
     }
-    this.isAddingColumn.set(false);
   }
 
   onRenameColumn(columnId: string, name: string): void {

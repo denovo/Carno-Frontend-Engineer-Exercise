@@ -108,3 +108,26 @@ h1, h2, h3, h4, h5, h6 {
 .cdk-drop-list-dragging app-task-card:not(.cdk-drag-placeholder) {
   cursor: grabbing;
 }
+
+// ─── Add Column Dialog ────────────────────────────────────────────────────────
+.dialog-column-input {
+  font-family: var(--font-ui, 'DM Sans', sans-serif);
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--mat-sys-surface-container-highest);
+  border: 1px solid var(--mat-sys-outline-variant);
+  border-radius: 6px;
+  color: var(--mat-sys-on-surface);
+  padding: 10px 12px;
+  outline: none;
+
+  &:focus {
+    border-color: var(--mat-sys-primary);
+  }
+
+  &::placeholder {
+    color: var(--mat-sys-on-surface-variant);
+    opacity: 0.7;
+  }
+}

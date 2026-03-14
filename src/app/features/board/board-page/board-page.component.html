@@ -19,8 +19,37 @@
   <button mat-icon-button (click)="theme.toggle()" [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'">
     <mat-icon>{{ theme.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
   </button>
+  <button mat-icon-button [matMenuTriggerFor]="settingsMenu" aria-label="Board settings">
+    <mat-icon>tune</mat-icon>
+  </button>
   <button mat-raised-button data-testid="add-task-btn" (click)="onGlobalAddTask()">+ Add Task</button>
 </mat-toolbar>
+
+<mat-menu #settingsMenu>
+  <button mat-menu-item (click)="openAddColumnDialog()">
+    <mat-icon>view_column</mat-icon>
+    Add column
+  </button>
+</mat-menu>
+
+<ng-template #addColumnDialog>
+  <h2 mat-dialog-title>Add column</h2>
+  <mat-dialog-content>
+    <input
+      class="dialog-column-input"
+      placeholder="Column name"
+      [value]="newColumnName()"
+      (input)="newColumnName.set($any($event.target).value)"
+      aria-label="Column name"
+      cdkFocusInitial
+    />
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="false">Cancel</button>
+    <button mat-button [mat-dialog-close]="true">Add</button>
+  </mat-dialog-actions>
+</ng-template>
+
 <app-widget-bar />
 
 @if (loading()) {
@@ -42,30 +71,5 @@
       (renameColumn)="onRenameColumn(col.id, $event)"
       (deleteColumn)="onDeleteColumn(col.id)"
     />
-  }
-
-  @if (isAddingColumn()) {
-    <div class="add-column-card">
-      <input
-        #newColInput
-        class="new-column-input"
-        placeholder="Column name"
-        [value]="newColumnName()"
-        (input)="newColumnName.set($any($event.target).value)"
-        (keydown.enter)="saveNewColumn()"
-        (keydown.escape)="cancelAddColumn()"
-        aria-label="New column name"
-      />
-      <div class="add-column-actions">
-        <button mat-flat-button (click)="saveNewColumn()">Add</button>
-        <button mat-icon-button (click)="cancelAddColumn()" aria-label="Cancel">
-          <mat-icon>close</mat-icon>
-        </button>
-      </div>
-    </div>
-  } @else {
-    <button class="add-column-btn" mat-stroked-button (click)="startAddColumn()">
-      <mat-icon>add</mat-icon> Add Column
-    </button>
   }
 </div>
