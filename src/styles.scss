@@ -1,15 +1,28 @@
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
+
+// ─── Design Tokens ────────────────────────────────────────────────────────────
+:root {
+  --font-ui: 'DM Sans', sans-serif;
+  --font-display: 'Bricolage Grotesque', sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --board-padding: 24px;
+  --column-gap: 14px;
+  --column-min-width: 300px;
+  --column-max-width: 340px;
+
+  // Priority accent colors (WCAG: used alongside text/label, not color-only)
+  --priority-low-color: #64748b;
+  --priority-medium-color: #2563eb;
+  --priority-high-color: #d97706;
+  --priority-critical-color: #dc2626;
+}
 
 html {
   height: 100%;
-  // Declare color-scheme support in CSS so light-dark() values in the
-  // Material theme custom properties can always resolve. ThemeService
-  // overrides this on <body> at runtime to honour the user's system preference.
   color-scheme: light dark;
   @include mat.theme(
     (
@@ -17,23 +30,49 @@ html {
         primary: mat.$azure-palette,
         tertiary: mat.$blue-palette,
       ),
-      typography: Roboto,
+      typography: 'DM Sans',
       density: 0,
     )
   );
 }
 
 body {
-  // color-scheme is set dynamically by ThemeService based on system preference.
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
   margin: 0;
   height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-/* You can add global styles to this file, and also import other style files */
+
+// ─── Typography ───────────────────────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+// ─── Material Component Font Overrides ────────────────────────────────────────
+.mat-mdc-card,
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-icon-button,
+.mat-mdc-form-field,
+.mat-mdc-select,
+.mat-mdc-option,
+.mdc-button,
+.mat-mdc-chip,
+.mat-mdc-dialog-container,
+.mat-mdc-snack-bar-container {
+  font-family: var(--font-ui) !important;
+  letter-spacing: 0 !important;
+}
+
+.mat-mdc-raised-button,
+.mat-mdc-button {
+  font-weight: 500 !important;
+}

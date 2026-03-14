@@ -2,6 +2,14 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  font-family: var(--font-ui) !important;
+
+  .toolbar-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
 }
 
 .toolbar-spacer {
@@ -10,16 +18,27 @@
 
 .loading-bar {
   position: sticky;
-  top: 0;
+  top: 64px;
   z-index: 10;
 }
 
 .board-columns {
   display: flex;
   flex-direction: row;
-  gap: 16px;
-  padding: 16px;
+  gap: var(--column-gap, 14px);
+  padding: var(--board-padding, 24px);
   overflow-x: auto;
   flex: 1;
   align-items: flex-start;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--mat-sys-outline-variant) transparent;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--mat-sys-outline-variant);
+    border-radius: 3px;
+  }
 }
