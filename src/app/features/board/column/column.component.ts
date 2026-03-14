@@ -1,4 +1,4 @@
-import { Component, input, output } from "@angular/core";
+import { Component, input, output, signal } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
@@ -33,8 +33,10 @@ export class ColumnComponent {
   editTask = output<Task>();
   deleteTask = output<Task>();
 
+  readonly isDragOver = signal(false);
+
   onDropped(event: CdkDragDrop<string>): void {
-    // Same-column drop: no move needed (reordering not supported in data model)
+    this.isDragOver.set(false);
     if (event.previousContainer === event.container) return;
 
     const task = event.item.data as Task;

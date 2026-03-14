@@ -11,8 +11,10 @@
     cdkDropList
     [cdkDropListData]="column().id"
     (cdkDropListDropped)="onDropped($event)"
+    (cdkDropListEntered)="isDragOver.set(true)"
+    (cdkDropListExited)="isDragOver.set(false)"
   >
-    @if (tasks().length === 0) {
+    @if (tasks().length === 0 && !isDragOver()) {
       <p class="empty-state">No tasks yet</p>
     }
     @for (task of tasks(); track task.id) {
