@@ -7,6 +7,7 @@ import { provideStoreDevtools } from "@ngrx/store-devtools";
 
 import { routes } from "./app.routes";
 import { tasksReducer, tasksFeatureKey } from "@app/core/store/reducers/task.reducer";
+import { localStorageMetaReducer } from "@app/core/store/reducers/local-storage.meta-reducer";
 import { TaskEffects } from "@app/core/store/effects/task.effects";
 
 export const appConfig: ApplicationConfig = {
@@ -14,7 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideAnimationsAsync(),
     provideRouter(routes),
-    provideStore({ [tasksFeatureKey]: tasksReducer }),
+    provideStore({ [tasksFeatureKey]: tasksReducer }, { metaReducers: [localStorageMetaReducer] }),
     provideEffects([TaskEffects]),
     provideStoreDevtools({
       maxAge: 25,

@@ -8,4 +8,9 @@ export const routes: Routes = [
         (m) => m.BoardPageComponent
       ),
   },
+  {
+    path: "board",
+    redirectTo: "",
+    pathMatch: "full",
+  },
 ];

@@ -22,6 +22,7 @@ import {
   removeTask,
   selectLoading,
   selectTasksByColumn,
+  selectAllTasks,
 } from "@app/core/store";
 import { MOCK_COLUMNS } from "@app/core/services/mock-data";
 import { ThemeService } from "@app/core/services/theme.service";
@@ -82,7 +83,10 @@ export class BoardPageComponent implements OnInit {
   readonly getPendingTaskIds = () => this.pendingTaskIds();
 
   ngOnInit(): void {
-    this.store.dispatch(loadTasks({ boardId: "board-1" }));
+    // Skip mock load if localStorage already hydrated the store with persisted tasks
+    if (this.store.selectSignal(selectAllTasks)().length === 0) {
+      this.store.dispatch(loadTasks({ boardId: "board-1" }));
+    }
 
     // Listen for move outcomes to clear pending state and show failure toast
     this.actions$
