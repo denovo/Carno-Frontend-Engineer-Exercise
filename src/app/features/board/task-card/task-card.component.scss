@@ -35,7 +35,7 @@ mat-card-header {
   flex-direction: row !important;
   align-items: center !important;
   justify-content: space-between !important;
-  padding: 10px 6px 10px 12px !important;
+  padding: 16px 6px 16px 12px !important;
   gap: 4px;
 
   ::ng-deep .mat-mdc-card-header-text {
@@ -48,7 +48,7 @@ mat-card-header {
 
 mat-card-title {
   font-family: var(--font-ui) !important;
-  font-size: 0.84rem !important;
+  font-size: 0.95rem !important;
   font-weight: 500 !important;
   letter-spacing: 0 !important;
   line-height: 1.4 !important;
